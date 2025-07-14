@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --bg-light: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-dark: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --app-bg-light: #ffffff;
+    --app-bg-dark: #1f2937;
+    --header-bg-light: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    --header-bg-dark: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+    --text-color-light: #1e293b;
+    --text-color-dark: #e2e8f0;
+    --secondary-text-light: #64748b;
+    --secondary-text-dark: #94a3b8;
+    --section-bg-light: #f8fafc;
+    --section-bg-dark: #374151;
+    --border-color-light: #e2e8f0;
+    --border-color-dark: #4b5563;
+    --input-bg-light: white;
+    --input-bg-dark: #4b5563;
+    --input-border-light: #e2e8f0;
+    --input-border-dark: #6b7280;
+    --input-focus-border: #2563eb;
+    --input-focus-shadow: rgba(37, 99, 235, 0.1);
+    --primary-btn-bg-light: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    --primary-btn-bg-dark: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    --success-btn-bg-light: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --success-btn-bg-dark: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    --warning-btn-bg-light: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    --warning-btn-bg-dark: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    --stat-card-bg-light: white;
+    --stat-card-bg-dark: #374151;
+    --stat-number-color: #2563eb;
+    --order-card-bg-light: white;
+    --order-card-bg-dark: #374151;
+    --total-section-bg-light: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    --total-section-bg-dark: linear-gradient(135deg, #1e293b 0%, #111827 100%);
+    --total-section-border-light: #bae6fd;
+    --total-section-border-dark: #3b82f6;
+    --total-final-color: #059669;
+
+    /* Notification Colors */
+    --notif-success-bg: #10b981;
+    --notif-success-text: white;
+    --notif-error-bg: #ef4444;
+    --notif-error-text: white;
+    --notif-warning-bg: #f59e0b;
+    --notif-warning-text: white;
+}
+
+/* styles.module.css */
+.hideScrollbar {
+    overflow: auto;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.hideScrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* background: var(--bg-light); */
+    min-height: 100vh;
+    /* padding: 20px; */
+    line-height: 1.6;
+    transition: background 0.3s ease;
+}
+
+body.dark {
+    background: var(--bg-dark);
+}
+
+body.dark .app-container {
+    background: var(--app-bg-dark);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .header {
+    background: var(--header-bg-dark);
+}
+
+body.dark .header h1,
+body.dark .header p {
+    color: var(--text-color-dark);
+}
+
+body.dark .content {
+    color: var(--text-color-dark);
+}
+
+body.dark .section {
+    background: var(--section-bg-dark);
+    border-color: var(--border-color-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .section::before {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+body.dark .section-header h2 {
+    color: var(--text-color-dark);
+}
+
+body.dark .section-header i {
+    color: var(--primary-btn-bg-dark);
+    /* Using primary button color for icons */
+}
+
+body.dark .input-group input,
+body.dark .input-group select {
+    background: var(--input-bg-dark);
+    border-color: var(--input-border-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark .input-group input::placeholder,
+body.dark .input-group select option {
+    color: var(--secondary-text-dark);
+}
+
+body.dark .input-group input:focus,
+body.dark .input-group select:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px var(--input-focus-shadow);
+}
+
+body.dark .btn {
+    background: var(--primary-btn-bg-dark);
+}
+
+body.dark .btn-success {
+    background: var(--success-btn-bg-dark);
+}
+
+body.dark .btn-warning {
+    background: var(--warning-btn-bg-dark);
+}
+
+body.dark .order-card {
+    background: var(--order-card-bg-dark);
+    border-color: var(--border-color-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .order-id,
+body.dark .detail-label,
+body.dark .detail-value {
+    color: var(--secondary-text-dark);
+}
+
+body.dark .detail-label {
+    color: var(--text-color-dark);
+}
+
+body.dark .total-section {
+    background: var(--total-section-bg-dark);
+    border-color: var(--total-section-border-dark);
+}
+
+body.dark .total-section span {
+    color: var(--text-color-dark);
+}
+
+body.dark .total-final {
+    color: var(--total-final-color);
+    border-color: var(--total-section-border-dark);
+}
+
+body.dark .status-pending {
+    background: #92400e;
+    color: #fef3c7;
+}
+
+body.dark .status-completed {
+    background: #065f46;
+    color: #d1fae5;
+}
+
+body.dark .empty-state {
+    color: var(--secondary-text-dark);
+}
+
+body.dark .empty-state h3 {
+    color: var(--text-color-dark);
+}
+
+body.dark .stat-card {
+    background: var(--stat-card-bg-dark);
+    border-color: var(--border-color-dark);
+}
+
+body.dark .stat-number {
+    color: var(--stat-number-color);
+}
+
+body.dark .stat-label {
+    color: var(--secondary-text-dark);
+}
