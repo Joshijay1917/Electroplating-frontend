@@ -16,8 +16,8 @@ const CustomerForm = ({ toggleForm }) => {
     }
 
     const handlesubmit = async(e) => {
-        store.setloading(!loading)
         e.preventDefault();
+        store.setloading(!loading)
         const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/addcustomer`, {
             method: 'POST',
             headers: {
