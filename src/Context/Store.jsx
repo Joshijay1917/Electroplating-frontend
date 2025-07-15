@@ -72,8 +72,8 @@ const StoreProvider = (props) => {
                 idx = i;
             }
         }
-        console.log(!JSON.parse(orders[idx].status));
-        orders[idx].status = !JSON.parse(orders[idx].status);
+        console.log(!JSON.parse(orders[idx].status).toString());
+        orders[idx].status = !JSON.parse(orders[idx].status).toString();
         return;
     }
 
