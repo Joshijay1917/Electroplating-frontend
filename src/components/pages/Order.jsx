@@ -11,8 +11,8 @@ const Order = () => {
 
     const changeStatus = (e, o) => {
         data.changeStatus(o._id, e.target.checked);
-        e.target.checked = !e.target.dataset.prev;
-        e.target.dataset.prev = !e.target.dataset.prev;
+        e.target.checked = JSON.parse(!e.target.dataset.prev);
+        e.target.dataset.prev = JSON.parse(!e.target.dataset.prev);
         data.getorders()
         console.log(e.target);
     }
