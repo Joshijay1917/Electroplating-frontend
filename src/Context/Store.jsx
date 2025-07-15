@@ -54,8 +54,10 @@ const StoreProvider = (props) => {
         if(res.status === 400) {
             showNotification(res.msg, "error")
         } else {
+            console.log("setloading",loading)
             setloading(!loading)
             showNotification("Status changed successfully", "success")
+            console.log("seted",loading)
         }
     }
 
