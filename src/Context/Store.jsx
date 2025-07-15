@@ -17,6 +17,7 @@ const StoreProvider = (props) => {
     }
 
     const deleteCustomer = async (id, type) => {//customer //order
+        setloading(!loading)
 
         const idData = (type === "customer") ? { customerID: id } : { orderID: id }
 
@@ -30,6 +31,7 @@ const StoreProvider = (props) => {
         const res = await data.json();
 
         if (res.status === 400) {
+            setloading(!loading)
             showNotification(res.msg, "error")
         } else {
             showNotification(res.msg, "success")
@@ -39,6 +41,7 @@ const StoreProvider = (props) => {
     }
 
     const changeStatus = async (id, status) => {
+        setloading(!loading)
         console.log("data send:", {id, status});
         changeOrder(id);
 
@@ -52,6 +55,7 @@ const StoreProvider = (props) => {
         const res = await data.json();
 
         if(res.status === 400) {
+            setloading(!loading)
             showNotification(res.msg, "error")
         } else {
             console.log("setloading",loading)
@@ -83,23 +87,29 @@ const StoreProvider = (props) => {
     }
 
         const getcustomers = async () => {
+            setloading(!loading)
             const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/allcustomer`)
             const res = await data.json();
 
             if (res.status === 400) {
+                setloading(!loading)
                 showNotification(res.msg, "error")
             } else {
+                setloading(!loading)
                 // showNotification("Get All Customers Successfully", "success")
                 setcustomers(res)
             }
         }
         const getorders = async () => {
+            setloading(!loading)
             const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/allorders`)
             const res = await data.json();
 
             if (res.status === 400) {
+                setloading(!loading)
                 showNotification(res.msg, "error")
             } else {
+                setloading(!loading)
                 // showNotification("Get All Orders Successfully", "success")
                 setorders(res)
             }
