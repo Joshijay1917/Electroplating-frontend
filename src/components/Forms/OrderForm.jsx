@@ -92,7 +92,7 @@ const OrderForm = () => {
       data.showNotification(res.msg, "error")
     } else {
       data.getorders()
-      navigate('/orders')
+      //navigate('/orders')
       data.showNotification("Order Add Successfully", "success")
     }
 
