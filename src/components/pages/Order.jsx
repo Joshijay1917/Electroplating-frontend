@@ -13,6 +13,7 @@ const Order = () => {
         data.changeStatus(o._id, e.target.checked);
         e.target.checked = !e.target.dataset.prev;
         e.target.dataset.prev = !e.target.dataset.prev;
+        data.getorders()
     }
 
     useEffect(() => {
