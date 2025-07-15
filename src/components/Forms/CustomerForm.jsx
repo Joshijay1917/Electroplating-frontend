@@ -35,7 +35,7 @@ const CustomerForm = ({ toggleForm }) => {
             store.showNotification(res.msg, "error")
         } else {
             navigate('/customer')
-            window.location.reload()
+            window.location.reload();
             store.showNotification("Add successfully", "success")
         }
 
