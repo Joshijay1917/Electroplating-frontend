@@ -32,6 +32,7 @@ const CustomerForm = ({ toggleForm }) => {
         if(res.status == 400) {
             store.showNotification(res.msg, "error")
         } else {
+            window.location.href = "https://electroplating-frontend.vercel.app/customer"
             store.showNotification("Add successfully", "success")
         }
 
