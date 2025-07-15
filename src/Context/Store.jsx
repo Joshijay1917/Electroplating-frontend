@@ -137,9 +137,9 @@ const StoreProvider = (props) => {
 
     return (
         <Store.Provider value={ContextValue}>
-            {loading && <div className="bg-black/30 fixed z-40 w-full h-full flex justify-center items-center">
+            {loading ? <div className="bg-black/30 fixed z-40 w-full h-full flex justify-center items-center">
                 <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
-                </div>}
+                </div> : null}
             {notification && (
                 <MyNotification
                     message={notification.message}
