@@ -13,7 +13,7 @@ const Order = () => {
         data.changeStatus(o._id, e.target.checked);
         data.getorders()
         //e.target.checked = e.target.checked
-        console.log(data.orders);
+        console.log(data.orders.find(order => order._id === o._id).status);
     }
 
     useEffect(() => {
