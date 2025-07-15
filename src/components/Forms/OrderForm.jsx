@@ -79,21 +79,20 @@ const OrderForm = () => {
       data.showNotification("Please select plating", "error")
     }
 
-    const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/addorder`, {
+    const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/addorder`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData)
     })
-    const res = await data.json();
+    const res = await data2.json();
 
     if (res.status == 400) {
       data.showNotification(res.msg, "error")
     } else {
-      //data.getorders()
-      //navigate('/orders')
-      console.log(data);
+      data.getorders()
+      navigate('/orders')
       data.showNotification("Order Add Successfully", "success")
     }
 
