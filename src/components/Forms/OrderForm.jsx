@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Store } from '../../Context/Store'
 import { FaClipboardList, FaMinus, FaPlus, FaUser } from 'react-icons/fa'
 import { GiCancel } from 'react-icons/gi'
+import { useNavigate } from 'react-router-dom'
 
 const OrderForm = () => {
   const data = useContext(Store)
+  const navigate = useNavigate()
   const [platecounter, setplatecounter] = useState(1)
   const [formData, setFormData] = useState({
     itemName: '',
@@ -90,6 +92,7 @@ const OrderForm = () => {
       data.showNotification(res.msg, "error")
     } else {
       data.getorders()
+      navigate('/orders')
       data.showNotification("Order Add Successfully", "success")
     }
 
@@ -101,11 +104,11 @@ const OrderForm = () => {
 
 
   return (
-    <div className='setheight2 p-6'>
+    <div className='setheight2 p-3 md:p-6'>
       <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 dark:text-gray-300 decoration-blue-400'>Order Form</h1>
 
       {formData.customer === ''
-        ? <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
+        ? <div className='md:mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
           <div className='flex items-center p-2'>
             <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
             <h2 className="text-xl font-semibold dark:text-gray-300">Select Customer</h2>
@@ -127,7 +130,7 @@ const OrderForm = () => {
         </div>
         : <>
           <form onSubmit={handleSubmit}>
-            <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
+            <div className='md:mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
               <div className='flex items-center p-2 justify-between'>
                 <div className='flex items-center'>
                   <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
@@ -225,7 +228,7 @@ const OrderForm = () => {
                 </div>
               </div>
 
-              <button type='submit' className='bg-blue-600 m-auto mt-8 text-white w-[35%] flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl text-white dark:text-blue-400 mr-3" /> Add Order</button>
+              <button type='submit' className='bg-blue-600 m-auto mt-8 text-white w-[50%] md:w-[35%] flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl text-white dark:text-blue-400 mr-3" /> Add Order</button>
             </div>
 
           </form>
