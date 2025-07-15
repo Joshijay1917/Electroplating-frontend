@@ -31,11 +31,11 @@ const StoreProvider = (props) => {
         const res = await data.json();
 
         if (res.status === 400) {
-            setloading(!loading)
+            setloading(0)
             showNotification(res.msg, "error")
         } else {
             showNotification(res.msg, "success")
-            setloading(!loading)
+            setloading(0)
             updateArray(id, type);
         }
     }
@@ -55,11 +55,11 @@ const StoreProvider = (props) => {
         const res = await data.json();
 
         if(res.status === 400) {
-            setloading(!loading)
+            setloading(0)
             showNotification(res.msg, "error")
         } else {
             console.log("setloading",loading)
-            setloading(!loading)
+            setloading(0)
             showNotification("Status changed successfully", "success")
             console.log("seted",loading)
         }
@@ -92,10 +92,10 @@ const StoreProvider = (props) => {
             const res = await data.json();
 
             if (res.status === 400) {
-                setloading(!loading)
+                setloading(0)
                 showNotification(res.msg, "error")
             } else {
-                setloading(!loading)
+                setloading(0)
                 // showNotification("Get All Customers Successfully", "success")
                 setcustomers(res)
             }
@@ -106,10 +106,10 @@ const StoreProvider = (props) => {
             const res = await data.json();
 
             if (res.status === 400) {
-                setloading(!loading)
+                setloading(0)
                 showNotification(res.msg, "error")
             } else {
-                setloading(!loading)
+                setloading(0)
                 // showNotification("Get All Orders Successfully", "success")
                 setorders(res)
             }
