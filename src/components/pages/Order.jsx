@@ -14,6 +14,7 @@ const Order = () => {
         e.target.checked = !e.target.dataset.prev;
         e.target.dataset.prev = !e.target.dataset.prev;
         data.getorders()
+        console.log(e.target);
     }
 
     useEffect(() => {
