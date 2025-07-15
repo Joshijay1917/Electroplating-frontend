@@ -12,8 +12,8 @@ const Order = () => {
     const changeStatus = (e, o) => {
         data.changeStatus(o._id, e.target.checked);
         data.getorders()
-        e.target.checked = e.target.checked
-        console.log(e.target.checked);
+        //e.target.checked = e.target.checked
+        console.log(data.orders[o._id]);
     }
 
     useEffect(() => {
