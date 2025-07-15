@@ -91,8 +91,8 @@ const OrderForm = () => {
     if (res.status == 400) {
       data.showNotification(res.msg, "error")
     } else {
-      data.getorders()
-      //navigate('/orders')
+      //data.getorders()
+      navigate('/orders')
       data.showNotification("Order Add Successfully", "success")
     }
 
