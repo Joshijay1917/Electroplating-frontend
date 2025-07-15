@@ -1,10 +1,12 @@
 .setheight{
-    min-height: 80vh;
+    /* min-height: 80vh; */
+    margin-bottom: 13vh;
     /* min-height: calc(100vh - 32.2vh); */
     /* height: calc(100vh - 25vh); */
 }
 .setheight2{
-    min-height: 80vh;
+    /* min-height: 80vh; */
+    margin-bottom: 13vh;
     /* min-height: calc(100vh - 32.2vh); */
     /* height: calc(100vh - 25vh); */
 }
