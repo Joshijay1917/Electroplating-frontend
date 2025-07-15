@@ -9,7 +9,7 @@ import { BiUser } from 'react-icons/bi'
 const Order = () => {
     const data = useContext(Store)
 
-    const changeStatus = (e) => {
+    const changeStatus = (e, o) => {
         data.changeStatus(o._id, e.target.checked);
         e.target.checked = !e.target.checked;
     }
@@ -44,7 +44,7 @@ const Order = () => {
                     {data.orders.map(o => {
                         return <div key={o._id} className={`rounded-xl flex justify-between items-center px-8 mx-3 my-3 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:text-white dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
                                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700"></div>
-                                <input type="checkbox" checked={JSON.parse(o.status)} onChange={(e)=>changeStatus(e)} />
+                                <input type="checkbox" checked={JSON.parse(o.status)} onChange={(e)=>changeStatus(e, o)} />
                                 <Link className='flex p-3 justify-center w-[80%]' to={`/orderdetails/${o._id}`}>
                                     <span className='name w-[50%] overflow-clip'>{o.customer}</span>
                                     <span className='itemName overflow-clip'>{o.itemName}</span>
