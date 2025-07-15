@@ -10,7 +10,6 @@ const Order = () => {
     const data = useContext(Store)
 
     const changeStatus = (e, o) => {
-        data.setloading(!data.loading)
         data.changeStatus(o._id, e.target.checked);
         //data.getorders()
         //e.target.checked = e.target.checked
@@ -53,7 +52,7 @@ const Order = () => {
                                     <span className='name w-[50%] overflow-clip'>{o.customer}</span>
                                     <span className='itemName overflow-clip'>{o.itemName}</span>
                                 </Link>
-                                <MdDelete onClick={e=>{data.deleteCustomer(o._id, "order");data.setloading(!data.loading)}} className='text-2xl text-blue-600 dark:text-blue-400' />
+                                <MdDelete onClick={e=>data.deleteCustomer(o._id, "order")} className='text-2xl text-blue-600 dark:text-blue-400' />
                             </div>
                     })}
                 </div>
