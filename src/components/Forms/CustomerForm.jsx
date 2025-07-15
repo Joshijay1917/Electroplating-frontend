@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { Store } from '../../Context/Store'
-import { useNavigate } from 'react-router-dom'
 
 const CustomerForm = ({ toggleForm }) => {
     const store = useContext(Store)
-    const navigate = useNavigate()
     const [FormData, setFormData] = useState({
         "name": '',
         "phone": ''
@@ -28,13 +26,10 @@ const CustomerForm = ({ toggleForm }) => {
         })
         const res = await data.json();
 
-        console.log(res);
-        
-
         if(res.status == 400) {
             store.showNotification(res.msg, "error")
         } else {
-            navigate('/customer')
+            store.getcustomers();
             store.showNotification("Add successfully", "success")
         }
 
