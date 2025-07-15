@@ -76,7 +76,6 @@ const StoreProvider = (props) => {
         return;
     }
 
-    useEffect(() => {
         const getcustomers = async () => {
             const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/allcustomer`)
             const res = await data.json();
@@ -99,6 +98,7 @@ const StoreProvider = (props) => {
                 setorders(res)
             }
         }
+    useEffect(() => {
         getcustomers()
         getorders()
     }, [])
@@ -108,6 +108,8 @@ const StoreProvider = (props) => {
         customers,
         orders,
         plating,
+        getcustomers,
+        getorders,
         setplating,
         setcurrentPage,
         changeStatus,
