@@ -13,7 +13,7 @@ const Order = () => {
         data.changeStatus(o._id, e.target.checked);
         data.getorders()
         //e.target.checked = e.target.checked
-        e.target.checked = data.orders.find(order => order._id === o._id).status
+        e.target.checked = JSON.parse(data.orders.find(order => order._id === o._id).status)
         console.log(JSON.parse(data.orders.find(order => order._id === o._id).status));
     }
 
