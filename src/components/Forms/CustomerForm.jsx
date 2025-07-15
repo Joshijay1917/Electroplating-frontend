@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { Store } from '../../Context/Store'
+import { useNavigate } from 'react-router-dom'
 
 const CustomerForm = ({ toggleForm }) => {
     const store = useContext(Store)
+    const navigate = useNavigate()
     const [FormData, setFormData] = useState({
         "name": '',
         "phone": ''
@@ -32,7 +34,7 @@ const CustomerForm = ({ toggleForm }) => {
         if(res.status == 400) {
             store.showNotification(res.msg, "error")
         } else {
-            window.location.href = "https://electroplating-frontend.vercel.app/customer"
+            navigate('/customer')
             store.showNotification("Add successfully", "success")
         }
 
