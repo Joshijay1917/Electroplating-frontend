@@ -89,7 +89,7 @@ const OrderForm = () => {
     if (res.status == 400) {
       data.showNotification(res.msg, "error")
     } else {
-      window.location.href = '/orders'
+      data.getorders()
       data.showNotification("Order Add Successfully", "success")
     }
 
