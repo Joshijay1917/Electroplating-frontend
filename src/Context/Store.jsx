@@ -41,7 +41,7 @@ const StoreProvider = (props) => {
         console.log("data send:", {id, status});
         changeOrder(id);
 
-        const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/changestatus`, {
+        const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/changestatus`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json"
