@@ -9,7 +9,7 @@ const StoreProvider = (props) => {
     const [plating, setplating] = useState([{id:1, type:"Chrome"},{id:2, type:"Nickel"},{id:3, type:"Gold"},{id:4, type:"Silver"},{id:5, type:"Zinc"},{id:6, type:"Copper"}])
     const [currentPage, setcurrentPage] = useState("")
     const [notification, setNotification] = useState(null)
-    const [loading, setloading] = useState(false)
+    const [loading, setloading] = useState(0)
 
     const showNotification = (message, type) => {
         setNotification({ message, type })
