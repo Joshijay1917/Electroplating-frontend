@@ -34,8 +34,8 @@ const CustomerForm = ({ toggleForm }) => {
         if(res.status == 400) {
             store.showNotification(res.msg, "error")
         } else {
-            navigate('/customer')
-            window.location.reload();
+            //navigate('/customer')
+            window.location.assign('/customer');
             store.showNotification("Add successfully", "success")
         }
 
