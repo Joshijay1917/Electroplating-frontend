@@ -73,6 +73,7 @@ const StoreProvider = (props) => {
             }
         }
         orders[idx].status = !orders[idx].status;
+        console.log(orders[idx]);
         return;
     }
 
