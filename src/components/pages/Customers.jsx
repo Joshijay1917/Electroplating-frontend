@@ -40,7 +40,7 @@ const Customers = () => {
           <span className='name'>{c.name}</span>
           <span className='phone'>{c.phone}</span>
         </div>
-        <MdDelete onClick={e=>data.deleteCustomer(c._id, "customer")} className='text-2xl text-blue-600 dark:text-blue-400' />
+        <MdDelete onClick={e=>{data.deleteCustomer(c._id, "customer");data.setloading(!data.loading)}} className='text-2xl text-blue-600 dark:text-blue-400' />
       </div>
       })
       :<div className='flex justify-center items-center'>
