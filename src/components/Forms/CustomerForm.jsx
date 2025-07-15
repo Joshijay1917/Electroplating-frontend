@@ -32,7 +32,6 @@ const CustomerForm = ({ toggleForm }) => {
         if(res.status == 400) {
             store.showNotification(res.msg, "error")
         } else {
-            window.location.href = '/customer'
             store.showNotification("Add successfully", "success")
         }
 
