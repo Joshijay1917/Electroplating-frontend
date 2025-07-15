@@ -51,7 +51,7 @@ const Dashboard = () => {
   
   return (
     <div className='[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
-      <div className={`rounded-xl p-5 m-5 grid grid-cols-2 gap-10 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg`}>
+      <div className={`rounded-xl md:p-5 m-5 grid grid-cols-2 gap-10 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg`}>
 
         <StasCard value={data.customers.length} label={"Customers"} bg={"bg-teal-500 dark:bg-teal-700"} />
         <StasCard value={data.orders.length} label={"Orders"} bg={"bg-yellow-500 dark:bg-yellow-700"} />
@@ -59,7 +59,7 @@ const Dashboard = () => {
         <StasCard value={data.orders.filter(o => o.status === "true").length} label={"Completed"} bg={"bg-orange-500 dark:bg-purple-800"} />
       </div>
 
-      <div className={`rounded-xl m-8 text-gray-700 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:text-white dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
+      <div className={`rounded-xl m-5 md:m-8 text-gray-700 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:text-white dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
       <div className='p-6 flex items-center'>
         <h1 className='font-bold text-4xl'>₹{data.orders.filter(o => o.status === "true").reduce((sum, order)=>sum+order.total, 0)}</h1>
         <div className='px-2 py-4'>
@@ -67,8 +67,8 @@ const Dashboard = () => {
           <p className='text-sm'>From Completed Orders</p>
         </div>
       </div>
-      <div className={`bg-cover py-4 bg-[url('/bgimage.jpg')]`}>
-        <div className='bg-white/70 dark:bg-gray-400/85 dark:text-gray-800 backdrop-blur-xs mx-10 rounded-2xl'>
+      <div className={`bg-cover pb-4 md:py-4 md:bg-[url('/bgimage.jpg')]`}>
+        <div className='bg-gray-400/40 dark:bg-gray-600 dark:md:bg-gray-400/85 dark:text-white dark:md:text-gray-800 backdrop-blur-xs mx-10 rounded-2xl'>
           {/* <h1 className='font-bold text-center text-3xl'>Orders:</h1>
           <div className='py-4'>
             <div className='flex mx-8 gap-4 text-xl'>
