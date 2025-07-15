@@ -9,7 +9,7 @@ const StoreProvider = (props) => {
     const [plating, setplating] = useState([{id:1, type:"Chrome"},{id:2, type:"Nickel"},{id:3, type:"Gold"},{id:4, type:"Silver"},{id:5, type:"Zinc"},{id:6, type:"Copper"}])
     const [currentPage, setcurrentPage] = useState("")
     const [notification, setNotification] = useState(null)
-
+    const [loading, setloading] = useState(true)
 
     const showNotification = (message, type) => {
         setNotification({ message, type })
@@ -121,6 +121,9 @@ const StoreProvider = (props) => {
 
     return (
         <Store.Provider value={ContextValue}>
+            {loading && <div className="bg-black/30 absolute w-full h-full flex justify-center items-center">
+                <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
+                </div>}
             {notification && (
                 <MyNotification
                     message={notification.message}
