@@ -11,6 +11,7 @@ const OrderForm = () => {
   const [formData, setFormData] = useState({
     itemName: '',
     customer: '',
+    customerid: '',
     material: '',
     quantity: '',
     plating: [],
@@ -22,6 +23,7 @@ const OrderForm = () => {
     setFormData(prev => ({
       ...prev,
       customer: customer.name
+      customerid: customer._id
     }))
   }
 
