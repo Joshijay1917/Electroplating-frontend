@@ -68,6 +68,7 @@ const StoreProvider = (props) => {
 
     const currentCustomerOrder = async(id) => {
         setloading(!loading);
+        console.log("ID:",id);
         const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/currentcustomerorder`, {
             method: 'POST',
             headers: {
@@ -76,6 +77,8 @@ const StoreProvider = (props) => {
             body: JSON.stringify({customersid: id})
         })
         const res = await data.json();
+
+        console.log("Res:",res);
 
         if(res === 400) {
             setloading(0)
