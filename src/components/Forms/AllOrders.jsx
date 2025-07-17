@@ -20,7 +20,7 @@ const AllOrders = () => {
     }
 
     useEffect(() => {
-        if (customer.customer === '') {
+        if (customer.customer !== '') {
             data.currentCustomerOrder(customer.customerid)
         }
         
