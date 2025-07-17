@@ -9,6 +9,7 @@ import Bills from './components/pages/Bills'
 import { useState, useEffect } from 'react'
 import OrderForm from './components/Forms/OrderForm'
 import OrderDetailes from './components/Content/OrderDetailes'
+import AllOrders from './components/Forms/AllOrders'
 
 function App() {
   const [darkmode, setdarkmode] = useState(false)
@@ -30,7 +31,8 @@ function App() {
           <Route path='/customer' element={<Customers />} />
           <Route path='/orders' element={<Order />} />
           <Route path='/orderdetails/:id' element={<OrderDetailes />} />
-          <Route path='/addorder' element={<OrderForm />} />
+          <Route path='/orderform/:id' element={<OrderForm />} />
+          <Route path='/addorder' element={<AllOrders />} />
           <Route path='/bills' element={<Bills />} />
         </Routes>
       <Options currentPage={currentPage} setcurrentPage={setcurrentPage} />
