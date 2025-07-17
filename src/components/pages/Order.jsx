@@ -33,6 +33,8 @@ const Order = () => {
         
     }, [])
 
+    console.log("order:", currentOrder)
+
     return (
         <div className='setheight'>
             <div className='mx-5 flex items-center justify-between my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
