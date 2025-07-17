@@ -75,7 +75,7 @@ const AllOrders = () => {
                             <FaList className="text-6xl text-blue-600 dark:text-blue-400 mr-3" />
                             <div>
                                 <h1 className='text-2xl font-bold dark:text-white'>No Orders</h1>
-                                <Link to={'/orderform'} className='flex bg-blue-500 text-white rounded-2xl p-1 px-3'>Add Order <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" /></Link>
+                                <Link to={`/orderform/${customer.customerid}`} className='flex bg-blue-500 text-white rounded-2xl p-1 px-3'>Add Order <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" /></Link>
                             </div>
                         </div>}
                 </div>}
