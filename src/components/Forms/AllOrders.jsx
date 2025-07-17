@@ -26,7 +26,7 @@ const AllOrders = () => {
         
     }, [customer])
     
-    console.log("order",data.currcusorder);
+    console.log("customer",customer);
 
 
     return (
