@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Store } from '../../Context/Store'
 import { FaClipboardList, FaMinus, FaPlus, FaUser } from 'react-icons/fa'
 import { GiCancel } from 'react-icons/gi'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const OrderForm = () => {
   const data = useContext(Store)
+  const params = useParams();
   const navigate = useNavigate()
   const [platecounter, setplatecounter] = useState(1)
   const [formData, setFormData] = useState({
@@ -18,15 +19,7 @@ const OrderForm = () => {
     status: false,
     gstApply: 'yes(18)'
   })
-
-  const CustomerDetailes = (customer, event) => {
-    setFormData(prev => ({
-      ...prev,
-      customer: customer.name,
-      customerid: customer._id
-    }))
-  }
-
+  
   const ChangeCustomer = () => {
     setFormData(prev => ({
       ...prev,
@@ -91,6 +84,7 @@ const OrderForm = () => {
     const res = await data2.json();
 
     if (res.status == 400) {
+      navigate('/orders')
       data.showNotification(res.msg, "error")
     } else {
       data.getorders()
@@ -102,20 +96,31 @@ const OrderForm = () => {
 
   useEffect(() => {
     data.setcurrentPage("Addorder")
+    let customer;
+    if (params.id) {
+      customer = data.customers.find(c => c._id === params.id)
+        setFormData(prev => ({
+          ...prev,
+          customer: customer.name,
+          customerid: customer._id
+        }))
+    } else {
+      data.showNotification("id not found", "error")
+    }
   }, [])
 
 
   return (
-    <div className='setheight2 p-3 md:p-6'>
+    <div className='setheight2 p-3'>
       <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 dark:text-gray-300 decoration-blue-400'>Order Form</h1>
 
-      {formData.customer === ''
-        ? <div className='md:mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
+      {params.name === ''
+        ? <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
           <div className='flex items-center p-2'>
             <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
             <h2 className="text-xl font-semibold dark:text-gray-300">Select Customer</h2>
           </div>
-          <hr className='my-3 border border-blue-400'/>
+          <hr className='my-3 border border-blue-400' />
 
           <div>
             {data.customers.map(c => {
@@ -132,7 +137,7 @@ const OrderForm = () => {
         </div>
         : <>
           <form onSubmit={handleSubmit}>
-            <div className='md:mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
+            <div className='mx-1 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
               <div className='flex items-center p-2 justify-between'>
                 <div className='flex items-center'>
                   <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
@@ -140,7 +145,7 @@ const OrderForm = () => {
                 </div>
                 <GiCancel onClick={e => ChangeCustomer()} className='text-3xl text-blue-600 dark:text-blue-400' />
               </div>
-              <hr className='my-3 border border-blue-400'/>
+              <hr className='my-3 border border-blue-400' />
 
               <div className={`flex p-3 px-4 relative overflow-hidden dark:text-white dark:bg-[var(--bg-dark)] bg-gray-50`}>
                 <div className='flex items-center justify-between gap-3 w-full'>
@@ -230,7 +235,7 @@ const OrderForm = () => {
                 </div>
               </div>
 
-              <button type='submit' className='bg-blue-600 m-auto mt-8 text-white w-[50%] md:w-[35%] flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl text-white dark:text-blue-400 mr-3" /> Add Order</button>
+              <button type='submit' className='bg-blue-600 m-auto mt-8 text-white w-fit flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl text-white dark:text-blue-400 mr-3" /> Add Order</button>
             </div>
 
           </form>
