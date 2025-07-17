@@ -87,6 +87,8 @@ const StoreProvider = (props) => {
         }
     }
 
+    console.log("orders:",currcusorder);
+
     const updateArray = (id, type) => {
         if(type === "customer") {
             setcustomers(customers.filter(c => c._id !== id))
