@@ -10,6 +10,7 @@ const StoreProvider = (props) => {
     const [currentPage, setcurrentPage] = useState("")
     const [notification, setNotification] = useState(null)
     const [loading, setloading] = useState(0)
+    const [currcusorder, setcurrcusorder] = useState([])
 
     const showNotification = (message, type) => {
         setNotification({ message, type })
@@ -62,6 +63,27 @@ const StoreProvider = (props) => {
             setloading(0)
             showNotification("Status changed successfully", "success")
             console.log("seted",loading)
+        }
+    }
+
+    const currentCustomerOrder = async(id) => {
+        setloading(!loading);
+        const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/currentcustomerorder`, {
+            method: 'POST',
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({customersid: id})
+        })
+        const res = await data.json();
+
+        if(res === 400) {
+            setloading(0)
+            showNotification(res.msg, "error")
+        } else {
+            setloading(0)
+            showNotification("Current customer orders geted", "success")
+            setcurrcusorder(res)
         }
     }
 
@@ -124,6 +146,8 @@ const StoreProvider = (props) => {
         customers,
         orders,
         plating,
+        currcusorder,
+        currentCustomerOrder,
         setloading,
         loading,
         getcustomers,
