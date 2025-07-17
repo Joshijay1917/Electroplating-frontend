@@ -22,7 +22,7 @@ const OrderForm = () => {
   const CustomerDetailes = (customer, event) => {
     setFormData(prev => ({
       ...prev,
-      customer: customer.name
+      customer: customer.name,
       customerid: customer._id
     }))
   }
