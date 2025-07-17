@@ -88,8 +88,8 @@ const OrderForm = () => {
       data.showNotification(res.msg, "error")
     } else {
       //data.currentCustomerOrder(formData.customerid)
-      data.orders();
       navigate('/orders')
+      data.orders();
       data.showNotification("Order Add Successfully", "success")
     }
 
