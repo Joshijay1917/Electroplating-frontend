@@ -42,8 +42,9 @@ const Bills = () => {
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `invoice_${month}.pdf`);
-            document.body.appendChild(link);
+            //link.setAttribute('download', `invoice_${month}.pdf`);
+            //document.body.appendChild(link);
+            link.download = filename || `invoice_${new Date().toISOString().slice(0, 10)}.pdf`;
             link.click();
 
             // Clean up
