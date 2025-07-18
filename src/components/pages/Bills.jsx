@@ -32,10 +32,10 @@ const Bills = () => {
             })
             // const res = await data2.json();
 
-            if (!data2.ok) {
+            //if (!data2.ok) {
                 //const errorData = await data2.json();
-                console.log('Failed to generate invoice');
-            }
+                //console.log('Failed to generate invoice');
+            //}
 
             const blob = await data2.blob();
             const url = window.URL.createObjectURL(blob);
