@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 const OrderForm = () => {
   const data = useContext(Store)
   const params = useParams();
+  const [loading, setloading] = useState(0)
   const navigate = useNavigate()
   const [platecounter, setplatecounter] = useState(1)
   const [formData, setFormData] = useState({
@@ -60,6 +61,7 @@ const OrderForm = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    setloading(!loading);
 
     if (formData.itemName == '') {
       data.showNotification("Please enter itemName", "error")
@@ -84,10 +86,12 @@ const OrderForm = () => {
     const res = await data2.json();
 
     if (res.status == 400) {
+      setloading(0)
       navigate('/orders')
       data.showNotification(res.msg, "error")
     } else {
       //data.currentCustomerOrder(formData.customerid)
+      setloading(0)
       navigate('/orders')
       data.getorders();
       data.showNotification("Order Add Successfully", "success")
@@ -241,6 +245,9 @@ const OrderForm = () => {
 
           </form>
         </>}
+      {loading ? <div className="bg-black/30 fixed z-30 w-full h-full flex justify-center items-center">
+        <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
+      </div> : null}
     </div>
   )
 }
