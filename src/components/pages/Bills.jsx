@@ -33,8 +33,8 @@ const Bills = () => {
             // const res = await data2.json();
 
             if (!data2.ok) {
-                const errorData = await data2.json();
-                console.log(errorData || 'Failed to generate invoice');
+                //const errorData = await data2.json();
+                console.log('Failed to generate invoice');
             }
 
             const blob = await data2.blob();
