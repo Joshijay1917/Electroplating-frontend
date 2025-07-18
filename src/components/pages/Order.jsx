@@ -31,7 +31,7 @@ const Order = () => {
         }
         getOrders();
         
-    }, [])
+    }, [data.orders])
 
     console.log("order:", currentOrder)
 
