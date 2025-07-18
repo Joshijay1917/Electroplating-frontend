@@ -22,21 +22,40 @@ const Bills = () => {
             data.showNotification("CustomerID not found", "error")
         }
 
-        const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ id: customerid })
-        })
-        const res = await data2.json();
+        try {
+            const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ id: customerid })
+            })
+            // const res = await data2.json();
 
-        if (res.status === 400) {
-            setloading(0)
-            data.showNotification(res.msg, "error")
-        } else {
+            if (!data2.ok) {
+                const errorData = await data2.json();
+                console.log(errorData.message || 'Failed to generate invoice');
+            }
+
+            const blob = await data2.blob();
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `invoice_${month}.pdf`);
+            document.body.appendChild(link);
+            link.click();
+
+            // Clean up
+            setTimeout(() => {
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+            }, 100);
+
             setloading(0)
             data.showNotification("Bill generated", "success")
+        } catch (error) {
+            setloading(0)
+            data.showNotification(error, "error")
         }
     }
 
