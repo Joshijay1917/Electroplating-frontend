@@ -40,17 +40,19 @@ const Bills = () => {
             const blob = await data2.blob();
             console.log(blob);
             const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
+            window.open(url, '_blank');
+            //const link = document.createElement('a');
+            //link.href = url;
             //link.setAttribute('download', `invoice_${month}.pdf`);
             //document.body.appendChild(link);
-            link.download = filename || `invoice_${new Date().toISOString().slice(0, 10)}.pdf`;
-            link.click();
+            //link.download = filename || `invoice_${new Date().toISOString().slice(0, 10)}.pdf`;
+            //link.click();
 
             // Clean up
             setTimeout(() => {
-                document.body.removeChild(link);
-                window.URL.revokeObjectURL(url);
+                URL.revokeObjectURL(url)
+                //document.body.removeChild(link);
+                //window.URL.revokeObjectURL(url);
             }, 100);
 
             setloading(0)
