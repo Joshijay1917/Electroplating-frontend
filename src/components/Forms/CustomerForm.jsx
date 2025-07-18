@@ -18,6 +18,7 @@ const CustomerForm = ({ toggleForm }) => {
 
     const handlesubmit = async(e) => {
         e.preventDefault();
+        setloading(!loading);
         const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/addcustomer`, {
             method: 'POST',
             headers: {
@@ -28,8 +29,10 @@ const CustomerForm = ({ toggleForm }) => {
         const res = await data.json();
 
         if(res.status == 400) {
+            setloading(0)
             store.showNotification(res.msg, "error")
         } else {
+            setloading(0)
             store.getcustomers();
             store.showNotification("Add successfully", "success")
         }
