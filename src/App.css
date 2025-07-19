@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Light mode defaults */
-    --bg: #1e293b;
+    --bg: white;
     --app-bg: #ffffff;
     --header-bg: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     --text-color: #1e293b;
