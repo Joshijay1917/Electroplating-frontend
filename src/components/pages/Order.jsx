@@ -40,7 +40,7 @@ const Order = () => {
             <div className='mx-5 flex items-center justify-between my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
                 <div className='flex items-center'>
                     <FaClipboardList className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
-                    <h2 className="text-xl font-semibold dark:text-white">All Orders</h2>
+                    <h2 className="text-xl font-semibold">All Orders</h2>
                 </div>
                 <Link to={'/addorder'}>
                     <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" />
@@ -63,7 +63,7 @@ const Order = () => {
                             return <div key={c._id} className='mx-2 flex flex-col my-3 shadow-2xl border border-gray-400 rounded-2xl p-3'>
                             <div className='flex items-center'>
                                 <FaUser className="text-lg text-blue-600 dark:text-blue-400 mr-3" />
-                                <h2 className="text-lg font-medium dark:text-gray-300">{c.name}</h2>
+                                <h2 className="text-lg font-medium">{c.name}</h2>
                             </div>
                             {/* <hr className='my-3 border border-blue-400'/> */}
                             {currentOrder.filter(o => o.customerid === c._id).map(o => {
@@ -83,7 +83,7 @@ const Order = () => {
                           <BiUser className="text-6xl text-blue-600 dark:text-blue-400 mr-3"/>
                           <div>
                           <h1 className='text-2xl font-bold dark:text-white'>No Customers</h1>
-                          <button onClick={()=>toggleForm()} className='flex bg-blue-500 text-white rounded-2xl p-1 px-3'>Add Customer <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3"/></button>
+                          <button onClick={()=>toggleForm()} className='flex bg-blue-500 rounded-2xl p-1 px-3'>Add Customer <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3"/></button>
                           </div>
                         </div>
                         }
@@ -104,8 +104,8 @@ const Order = () => {
                 : <div className='flex justify-center items-center m-8'>
                     <BiUser className="text-6xl text-blue-600 dark:text-blue-400 mr-3" />
                     <div>
-                        <h1 className='text-2xl font-bold dark:text-white'>No Orders</h1>
-                        <Link to={'/addorder'} className='flex bg-blue-500 text-white rounded-2xl p-1 px-3'>Add Order <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" /></Link>
+                        <h1 className='text-2xl font-bold'>No Orders</h1>
+                        <Link to={'/addorder'} className='flex bg-blue-500 rounded-2xl p-1 px-3'>Add Order <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white mr-3" /></Link>
                     </div>
                 </div>}
         </div>
