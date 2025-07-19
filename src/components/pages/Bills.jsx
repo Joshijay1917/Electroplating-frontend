@@ -44,15 +44,15 @@ const Bills = () => {
             const blob = await data2.blob();
             console.log(blob);
             // Hypothetical Appilix-specific code
-            window.Appilix.downloadFile(pdfBlob, 'invoice.pdf');
-            // const url = window.URL.createObjectURL(blob);
+            // window.Appilix.downloadFile(pdfBlob, 'invoice.pdf');
+            const url = URL.createObjectURL(blob);
             // window.open(url, '_blank');
-            //const link = document.createElement('a');
-            //link.href = url;
+            const link = document.createElement('a');
+            link.href = url;
             //link.setAttribute('download', `invoice_${month}.pdf`);
-            //document.body.appendChild(link);
-            //link.download = filename || `invoice_${new Date().toISOString().slice(0, 10)}.pdf`;
-            //link.click();
+            document.body.appendChild(link);
+            link.download = filename || `invoice_${new Date().toISOString().slice(0, 10)}.pdf`;
+            link.click();
 
             // Clean up
             setTimeout(() => {
