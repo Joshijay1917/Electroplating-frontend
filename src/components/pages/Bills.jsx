@@ -8,6 +8,10 @@ const Bills = () => {
     const data = useContext(Store)
     const [loading, setloading] = useState(0)
     const [currCus, setcurrCus] = useState([])
+    const [Date, setDate] = useState({
+        From: '',
+        To: ''
+    })
     const [customerid, setcustomerid] = useState("")
 
     const handleChange = (e) => {
@@ -18,7 +22,7 @@ const Bills = () => {
         e.preventDefault();
         setloading(!loading);
 
-        if (!customerid) {
+        if (!customerid || !Date.From || !Date.To) {
             data.showNotification("CustomerID not found", "error")
         }
 
@@ -28,7 +32,7 @@ const Bills = () => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ id: customerid })
+                body: JSON.stringify({ id: customerid, Date: Date })
             })
             // const res = await data2.json();
 
@@ -63,6 +67,13 @@ const Bills = () => {
         }
     }
 
+    const handleDate = (e) => {
+        setDate(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }))
+    }
+
     useEffect(() => {
         data.setcurrentPage("Bills")
     }, [])
@@ -85,9 +96,20 @@ const Bills = () => {
             <div className='flex flex-col my-4 shadow-2xl border border-gray-400 rounded-2xl p-4 dark:border-gray-600 overflow-clip'>
                 <div className='flex items-center p-2'>
                     <FaUser className="text-xl text-blue-600 mr-3" />
-                    <h2 className="text-xl font-semibold">Select Customer</h2>
+                    <h2 className="text-xl font-semibold">Select Customer & Month</h2>
                 </div>
                 <hr className='my-3 border border-blue-400' />
+
+                <div className='flex flex-wrap gap-3 justify-between items-center w-full md:w-[55%]'>
+                        <div className='flex gap-3 items-center justify-between w-full'>
+                            <span>From</span>
+                            <input onChange={handleDate} name='From' value={Date.From} className='w-full border rounded-2xl border-gray-400 p-3' type="month" />
+                        </div>
+                        <div className='flex gap-3 items-center justify-between w-full'>
+                            <span>To:</span>
+                            <input onChange={handleDate} name='To' value={Date.To} className='w-full border rounded-2xl border-gray-400 p-3' type="month" />
+                        </div>
+                    </div>
 
                 <div className='flex gap-3 font-medium items-center'>
                     <span>Customer:</span>
