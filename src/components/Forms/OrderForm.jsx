@@ -2,11 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Store } from '../../Context/Store'
 import { FaClipboardList, FaMinus, FaPlus, FaUser } from 'react-icons/fa'
 import { GiCancel } from 'react-icons/gi'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const OrderForm = () => {
   const data = useContext(Store)
-  const params = useParams();
   const [loading, setloading] = useState(0)
   const navigate = useNavigate()
   const [platecounter, setplatecounter] = useState(1)
@@ -20,6 +19,14 @@ const OrderForm = () => {
     status: false,
     gstApply: 'yes(18)'
   })
+
+  const CustomerDetailes = (customer, event) => {
+    setFormData(prev => ({
+      ...prev,
+      customer: customer.name,
+      customerid: customer._id
+    }))
+  }
   
   const ChangeCustomer = () => {
     setFormData(prev => ({
@@ -101,17 +108,6 @@ const OrderForm = () => {
 
   useEffect(() => {
     data.setcurrentPage("Addorder")
-    let customer;
-    if (params.id) {
-      customer = data.customers.find(c => c._id === params.id)
-        setFormData(prev => ({
-          ...prev,
-          customer: customer.name,
-          customerid: customer._id
-        }))
-    } else {
-      data.showNotification("id not found", "error")
-    }
   }, [])
 
 
@@ -119,7 +115,7 @@ const OrderForm = () => {
     <div className='setheight2 p-3'>
       <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 decoration-blue-400'>Order Form</h1>
 
-      {params.name === ''
+      {formData.customer === ''
         ? <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
           <div className='flex items-center p-2'>
             <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
