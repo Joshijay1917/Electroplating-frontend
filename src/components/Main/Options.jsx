@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { FaClipboardList, FaList, FaStamp, FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { Store } from '../../Context/Store'
 
 const Options = () => {
   const data = useContext(Store)
