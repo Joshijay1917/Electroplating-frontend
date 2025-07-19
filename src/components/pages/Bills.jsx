@@ -84,8 +84,8 @@ const Bills = () => {
 
             <div className='flex flex-col my-4 shadow-2xl border border-gray-400 rounded-2xl p-4 overflow-clip'>
                 <div className='flex items-center p-2'>
-                    <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
-                    <h2 className="text-xl font-semibold dark:text-gray-300">Select Customer</h2>
+                    <FaUser className="text-xl text-blue-600 mr-3" />
+                    <h2 className="text-xl font-semibold">Select Customer</h2>
                 </div>
                 <hr className='my-3 border border-blue-400' />
 
@@ -99,7 +99,7 @@ const Bills = () => {
                     </select>
                 </div>
 
-                <button onClick={handleClick} className='text-white bg-green-500 p-2 mx-4 my-3 mt-6 font-semibold rounded-2xl'>Generate Bill</button>
+                <button onClick={handleClick} className='dark:text-white bg-green-500 p-2 mx-4 my-3 mt-6 font-semibold rounded-2xl'>Generate Bill</button>
             </div>
              {loading ? <div className="bg-black/30 fixed top-0 left-0 z-30 w-full h-full flex justify-center items-center">
                  <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
