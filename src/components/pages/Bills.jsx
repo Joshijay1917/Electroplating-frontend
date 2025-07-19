@@ -77,12 +77,12 @@ const Bills = () => {
         <div className={`rounded-xl setheight p-6 relative overflow-hidden`}>
             {/* <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700"></div> */}
 
-            <div className="flex items-center  border-b-2 border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+            <div className="flex items-center  border-b-2 border-gray-200 dark:border-gray-600">
                 <FaClipboardList className="text-2xl text-blue-600 dark:text-blue-400 mr-3" />
                 <h2 className="text-2xl font-semibold">All Bills</h2>
             </div>
 
-            <div className='flex flex-col my-4 shadow-2xl border border-gray-400 rounded-2xl p-4 dark:bg-gray-700 dark:border-gray-600 overflow-clip'>
+            <div className='flex flex-col my-4 shadow-2xl border border-gray-400 rounded-2xl p-4 dark:border-gray-600 overflow-clip'>
                 <div className='flex items-center p-2'>
                     <FaUser className="text-xl text-blue-600 mr-3" />
                     <h2 className="text-xl font-semibold">Select Customer</h2>
