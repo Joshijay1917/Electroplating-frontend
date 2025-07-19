@@ -159,6 +159,7 @@ const StoreProvider = (props) => {
         getorders,
         setplating,
         setcurrentPage,
+        currentPage,
         changeStatus,
         showNotification,
         deleteCustomer
