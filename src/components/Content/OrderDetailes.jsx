@@ -2,11 +2,12 @@ import React, { useContext, useEffect } from 'react'
 import { Store } from '../../Context/Store'
 import { FaUser } from 'react-icons/fa'
 import { GiCancel } from 'react-icons/gi'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const OrderDetailes = () => {
   const data = useContext(Store)
   const params = useParams();
+  const naviagte = useNavigate();
   const order = data.orders.find(o => o._id == params.id)
 
   console.log("Order:", order);
@@ -28,7 +29,7 @@ const OrderDetailes = () => {
             <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
             <h2 className="text-xl font-semibold">{order.customer.toLocaleUpperCase()}</h2>
           </div>
-          <GiCancel onClick={e => { window.location.href = '/orders' }} className='text-3xl text-blue-600 dark:text-blue-400' />
+          <GiCancel onClick={e => naviagte('/orders')} className='text-3xl text-blue-600 dark:text-blue-400' />
         </div>
         <hr className='mt-3 border border-blue-400'/>
 
