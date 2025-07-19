@@ -27,7 +27,7 @@ const Customers = () => {
         <FaClipboardList className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
         <h2 className="text-xl font-semibold">All Customers</h2>
         </div>
-        <FaPlus onClick={()=>toggleForm()} className="text-2xl dark:text-white p-1 rounded-sm bg-blue-500 mr-3"/>
+        <FaPlus onClick={()=>toggleForm()} className="text-2xl text-white p-1 rounded-sm bg-blue-500 mr-3"/>
       </div>
 
       {customerForm && <CustomerForm toggleForm={toggleForm} />}
