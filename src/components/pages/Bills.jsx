@@ -111,7 +111,7 @@ const Bills = () => {
                         </div>
                     </div>
 
-                <div className='flex gap-3 font-medium items-center'>
+                <div className='flex mt-5 gap-3 font-medium justify-between items-center w-full md:w-[55%]'>
                     <span>Customer:</span>
                     <select onChange={handleChange} className='border border-gray-400 rounded-2xl p-3'>
                         <option value={0}>Select Customer</option>
