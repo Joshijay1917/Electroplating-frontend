@@ -7,9 +7,9 @@ const Options = () => {
   const data = useContext(Store)
   
   const handleClick = (e, page) => {
+    console.log(page)
     data.setcurrentPage(page)
   }
-  console.log(data.currentPage)
   
 
   return (
