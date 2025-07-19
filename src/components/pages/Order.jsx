@@ -42,7 +42,7 @@ const Order = () => {
                     <FaClipboardList className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
                     <h2 className="text-xl font-semibold">All Orders</h2>
                 </div>
-                <Link to={'/addorder'}>
+                <Link to={'/orderform'}>
                     <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" />
                 </Link>
             </div>
@@ -105,7 +105,7 @@ const Order = () => {
                     <BiUser className="text-6xl text-blue-600 dark:text-blue-400 mr-3" />
                     <div>
                         <h1 className='text-2xl font-bold'>No Orders</h1>
-                        <Link to={'/addorder'} className='flex bg-blue-500 rounded-2xl p-1 px-3'>Add Order <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white mr-3" /></Link>
+                        <Link to={'/orderform'} className='flex bg-blue-500 rounded-2xl p-1 px-3'>Add Order <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white mr-3" /></Link>
                     </div>
                 </div>}
         </div>
