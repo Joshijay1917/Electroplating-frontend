@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Light mode defaults */
-    --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg: #1e293b;
     --app-bg: #ffffff;
     --header-bg: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     --text-color: #1e293b;
@@ -89,7 +89,7 @@
 
   body {
     @apply font-sans min-h-screen transition-colors duration-300;
-    /* background: var(--bg); */
+    background: var(--bg);
     color: var(--text-color);
     line-height: 1.6;
   }
