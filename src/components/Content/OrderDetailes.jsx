@@ -26,31 +26,31 @@ const OrderDetailes = () => {
         <div className='flex items-center p-2 justify-between'>
           <div className='flex items-center'>
             <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
-            <h2 className="text-xl font-semibold dark:text-white">{order.customer.toLocaleUpperCase()}</h2>
+            <h2 className="text-xl font-semibold">{order.customer.toLocaleUpperCase()}</h2>
           </div>
           <GiCancel onClick={e => { window.location.href = '/orders' }} className='text-3xl text-blue-600 dark:text-blue-400' />
         </div>
         <hr className='mt-3 border border-blue-400'/>
 
-        <div className={`flex pt-3 px-4 relative overflow-hidden dark:text-white dark:bg-gray-700 bg-gray-50`}>
+        <div className={`flex pt-3 px-4 relative overflow-hidden dark:bg-gray-700 bg-gray-50`}>
           <div className='flex items-center justify-between gap-3 w-full'>
             <span className='itemname text-xl'>ItemName:</span>
             <span className='w-[70%] rounded-2xl text-xl p-2'>{order.itemName}</span>
           </div>
         </div>
-        <div className={`flex px-4 relative overflow-hidden dark:text-white dark:bg-gray-700 bg-gray-50`}>
+        <div className={`flex px-4 relative overflow-hidden dark:bg-gray-700 bg-gray-50`}>
           <div className='flex items-center justify-between gap-3 w-full'>
             <span className='itemname text-xl'>Material:</span>
             <span className='w-[70%] rounded-2xl text-xl p-2'>{order.material}</span>
           </div>
         </div>
-        <div className={`flex px-4 relative overflow-hidden dark:text-white dark:bg-gray-700 bg-gray-50`}>
+        <div className={`flex px-4 relative overflow-hidden dark:bg-gray-700 bg-gray-50`}>
           <div className='flex items-center justify-between gap-3 w-full'>
             <span className='itemname text-xl'>Quntity:</span>
             <span className='w-[70%] rounded-2xl text-xl p-2'>{order.quantity}</span>
           </div>
         </div>
-        <div className={`flex px-4 relative overflow-hidden dark:text-white dark:bg-gray-700 bg-gray-50`}>
+        <div className={`flex px-4 relative overflow-hidden dark:bg-gray-700 bg-gray-50`}>
           <div className='flex items-center justify-between gap-3 w-full'>
             <span className='itemname text-xl'>GST:</span>
             <span className='w-[70%] rounded-2xl text-xl p-2'>{(order.gst / order.baseCost) * 100}%</span>
