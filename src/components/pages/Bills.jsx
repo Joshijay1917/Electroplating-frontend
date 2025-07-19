@@ -46,7 +46,7 @@ const Bills = () => {
             // Hypothetical Appilix-specific code
             // window.Appilix.downloadFile(pdfBlob, 'invoice.pdf');
             const url = URL.createObjectURL(blob);
-            window.open("https://electroplating-frontend.vercel.app", '_blank');
+            window.open(url, '_blank');
             //const link = document.createElement('a');
             //link.href = url;
             //link.setAttribute('download', `invoice_${month}.pdf`);
