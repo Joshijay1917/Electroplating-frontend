@@ -22,7 +22,7 @@ const Customers = () => {
 
   return (
     <div className='setheight'>
-      <div className='mx-5 flex items-center justify-between my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
+      <div className='mx-5 flex items-center justify-between my-8 shadow-2xl border border-gray-400 dark:bg-gray-700 dark:border-gray-600 rounded-2xl p-4'>
         <div className='flex items-center'>
         <FaClipboardList className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
         <h2 className="text-xl font-semibold">All Customers</h2>
