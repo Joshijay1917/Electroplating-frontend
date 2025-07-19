@@ -67,7 +67,7 @@ const Order = () => {
                             </div>
                             {/* <hr className='my-3 border border-blue-400'/> */}
                             {currentOrder.filter(o => o.customerid === c._id).map(o => {
-                                return <div className={`rounded-xl flex justify-between items-center px-5 mt-3 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:text-white dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
+                                return <div className={`rounded-xl flex justify-between items-center px-5 mt-3 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
                                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700"></div>
                                 <input type="checkbox" checked={JSON.parse(o.status)} onChange={(e) => changeStatus(e, o)} />
                                 <Link className='flex p-3 justify-center w-[80%]' to={`/orderdetails/${o._id}`}>
