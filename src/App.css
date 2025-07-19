@@ -89,7 +89,7 @@
 
   body {
     @apply font-sans min-h-screen transition-colors duration-300;
-    background: var(--bg);
+    /* background: var(--bg); */
     color: var(--text-color);
     line-height: 1.6;
   }
