@@ -117,19 +117,19 @@ const OrderForm = () => {
 
   return (
     <div className='setheight2 p-3'>
-      <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 dark:text-gray-300 decoration-blue-400'>Order Form</h1>
+      <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 decoration-blue-400'>Order Form</h1>
 
       {params.name === ''
         ? <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
           <div className='flex items-center p-2'>
             <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
-            <h2 className="text-xl font-semibold dark:text-gray-300">Select Customer</h2>
+            <h2 className="text-xl font-semibold">Select Customer</h2>
           </div>
           <hr className='my-3 border border-blue-400' />
 
           <div>
             {data.customers.map(c => {
-              return <div key={c._id} onClick={(e) => CustomerDetailes(c, e)} className={`rounded-xl flex justify-between items-center p-3 px-8 my-3 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:text-white dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
+              return <div key={c._id} onClick={(e) => CustomerDetailes(c, e)} className={`rounded-xl flex justify-between items-center p-3 px-8 my-3 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
                 <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700"></div>
                 <div className='flex justify-between gap-6 w-[80%]'>
                   <span className='name'>{c.name}</span>
@@ -146,20 +146,20 @@ const OrderForm = () => {
               <div className='flex items-center p-2 justify-between'>
                 <div className='flex items-center'>
                   <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
-                  <h2 className="text-xl font-semibold dark:text-white">{formData.customer.toLocaleUpperCase()}</h2>
+                  <h2 className="text-xl font-semibold">{formData.customer.toLocaleUpperCase()}</h2>
                 </div>
                 <GiCancel onClick={e => ChangeCustomer()} className='text-3xl text-blue-600 dark:text-blue-400' />
               </div>
               <hr className='my-3 border border-blue-400' />
 
-              <div className={`flex p-3 px-4 relative overflow-hidden dark:text-white dark:bg-[var(--bg-dark)] bg-gray-50`}>
+              <div className={`flex p-3 px-4 relative overflow-hidden dark:bg-[var(--bg-dark)] bg-gray-50`}>
                 <div className='flex items-center justify-between gap-3 w-full'>
                   <span className='itemname text-lg'>ItemName:</span>
                   <input className='border w-[72%] border-gray-400 rounded-2xl p-2' type='text' name="itemName" placeholder="Itemname (e.g., Handle)" onChange={handleChange} />
                 </div>
               </div>
 
-              <div className='flex px-4 p-3 dark:text-white items-center justify-between gap-3 w-full'>
+              <div className='flex px-4 p-3 items-center justify-between gap-3 w-full'>
                 <span className='itemname text-lg'>Material:</span>
                 <select
                   name="material"
@@ -176,7 +176,7 @@ const OrderForm = () => {
                 </select>
               </div>
 
-              <div className='flex px-4 p-3 dark:text-white items-center justify-between gap-3 w-full'>
+              <div className='flex px-4 p-3 items-center justify-between gap-3 w-full'>
                 <span className='itemname text-lg'>Quntity:</span>
                 <input
                   type="number"
@@ -185,11 +185,11 @@ const OrderForm = () => {
                   placeholder="Quantity (kg)"
                   min="0"
                   step="0.01"
-                  className={`border w-[72%] dark:text-white border-gray-400 rounded-2xl p-3`}
+                  className={`border w-[72%] border-gray-400 rounded-2xl p-3`}
                 />
               </div>
 
-              <div className='flex px-4 p-3 dark:text-white items-center justify-between gap-3 w-full'>
+              <div className='flex px-4 p-3 items-center justify-between gap-3 w-full'>
                 <span className='itemname text-lg'>GST:</span>
                 <select
                   name="gstApply"
@@ -202,7 +202,7 @@ const OrderForm = () => {
                 </select>
               </div>
 
-              <div className='flex flex-col px-4 p-3 dark:text-white items-center justify-between gap-3 w-full'>
+              <div className='flex flex-col px-4 p-3 items-center justify-between gap-3 w-full'>
                 <span className='mx-auto font-bold text-2xl'>Plating</span>
                 {Array.from({ length: platecounter }, (_, i) => i + 1).map(c => {
                   return (<div key={c} className='flex justify-between w-full gap-5'>
@@ -240,7 +240,7 @@ const OrderForm = () => {
                 </div>
               </div>
 
-              <button type='submit' className='bg-blue-600 m-auto mt-8 text-white w-fit flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl text-white dark:text-blue-400 mr-3" /> Add Order</button>
+              <button type='submit' className='bg-blue-600 m-auto mt-8 w-fit flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl dark:text-blue-400 mr-3" /> Add Order</button>
             </div>
 
           </form>
