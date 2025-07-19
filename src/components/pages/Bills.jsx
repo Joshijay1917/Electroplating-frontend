@@ -43,8 +43,10 @@ const Bills = () => {
 
             const blob = await data2.blob();
             console.log(blob);
-            const url = window.URL.createObjectURL(blob);
-            window.open(url, '_blank');
+            // Hypothetical Appilix-specific code
+            window.Appilix.downloadFile(pdfBlob, 'invoice.pdf');
+            // const url = window.URL.createObjectURL(blob);
+            // window.open(url, '_blank');
             //const link = document.createElement('a');
             //link.href = url;
             //link.setAttribute('download', `invoice_${month}.pdf`);
