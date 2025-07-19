@@ -54,10 +54,10 @@ const Dashboard = () => {
     <div className='[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
       <div className={`rounded-xl md:p-5 m-5 grid grid-cols-2 gap-10 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg`}>
 
-        <Link to={'/customer'}><StasCard value={data.customers.length} label={"Customers"} bg={"bg-teal-500 dark:bg-teal-700"} /></Link>
-        <Link to={'/orders'}><StasCard value={data.orders.length} label={"Orders"} bg={"bg-yellow-500 dark:bg-yellow-700"} /></Link>
-        <Link to={'/orders'}><StasCard value={data.orders.filter(o => o.status === "false").length} label={"Pending"} bg={"bg-blue-400 dark:bg-blue-800"} /></Link>
-        <Link to={'/orders'}><StasCard value={data.orders.filter(o => o.status === "true").length} label={"Completed"} bg={"bg-orange-500 dark:bg-purple-800"} /></Link>
+        <Link to={'/customer'}><StasCard page={'Customers'} value={data.customers.length} label={"Customers"} bg={"bg-teal-500 dark:bg-teal-700"} /></Link>
+        <Link to={'/orders'}><StasCard page={'Orders'} value={data.orders.length} label={"Orders"} bg={"bg-yellow-500 dark:bg-yellow-700"} /></Link>
+        <Link to={'/orders'}><StasCard page={'Orders'} value={data.orders.filter(o => o.status === "false").length} label={"Pending"} bg={"bg-blue-400 dark:bg-blue-800"} /></Link>
+        <Link to={'/orders'}><StasCard page={'Orders'} value={data.orders.filter(o => o.status === "true").length} label={"Completed"} bg={"bg-orange-500 dark:bg-purple-800"} /></Link>
       </div>
 
       <div className={`rounded-xl m-5 md:m-8 text-gray-700 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:text-white dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
