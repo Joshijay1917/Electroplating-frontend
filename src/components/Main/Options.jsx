@@ -9,7 +9,7 @@ const Options = () => {
   const handleClick = (e, page) => {
     data.setcurrentPage(page)
   }
-
+  console.log(data.currentPage)
   
 
   return (
