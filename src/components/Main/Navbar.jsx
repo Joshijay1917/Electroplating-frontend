@@ -6,7 +6,7 @@ import { TfiAlignJustify } from 'react-icons/tfi'
 
 const Navbar = ({ toggleDarkMode, darkmode }) => {
     return (
-        <div className="nav px-3 bg-gray-200 dark:bg-gray-500 rounded-b-4xl top-0 flex text-3xl w-full justify-between items-center">
+        <div className="nav px-3 bg-gray-200 dark:bg-gray-500 dark:text-white rounded-b-4xl top-0 flex text-3xl w-full justify-between items-center">
             <div className='flex items-center gap-3'>
                 <HiAdjustmentsHorizontal className='text-[30px] md:text-[45px]'/>
                 <div className='flex'>
