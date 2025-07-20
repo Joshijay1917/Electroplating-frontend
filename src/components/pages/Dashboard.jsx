@@ -62,7 +62,7 @@ const Dashboard = () => {
 
       <div className={`rounded-xl m-5 md:m-8 text-gray-700 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:text-white dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
       <div className='p-6 flex items-center'>
-        <h1 className='font-bold text-4xl'>₹{data.orders.filter(o => o.status === "true").reduce((sum, order)=>sum+order.total, 0)}</h1>
+        <h1 className='font-bold text-4xl'>₹{data.orders.filter(o => o.status === "true").reduce((sum, order)=>sum+order.total, 0).toFixed(2)}</h1>
         <div className='px-2 py-4'>
           <h1 className='text-3xl'>Revenue</h1>
           <p className='text-sm'>From Completed Orders</p>
