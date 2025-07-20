@@ -27,27 +27,29 @@ const Bills = () => {
         }
 
         try {
-            const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ id: customerid, Date: Date })
-            })
+            //const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice`, {
+                //method: "POST",
+               // headers: {
+                    //"Content-Type": "application/json"
+               // },
+               // body: JSON.stringify({ id: customerid, Date: Date })
+            //})
             // const res = await data2.json();
+
+            const url = `${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice?id=${encodeURIComponent(customerid.toString())}&From=${encodeURIComponent(Date.From.toString())}&To=${encodeURIComponent(Date.To.toString())}`
 
             //if (!data2.ok) {
                 //const errorData = await data2.json();
                 //console.log('Failed to generate invoice');
             //}
 
-            const blob = await data2.blob();
+            //const blob = await data2.blob();
             console.log(blob);
             // Hypothetical Appilix-specific code
             // window.Appilix.downloadFile(pdfBlob, 'invoice.pdf');
-            const url = URL.createObjectURL(blob);
-            console.log(url);
-            //window.open(url, '_blank');
+            //const url = URL.createObjectURL(blob);
+            //console.log(url);
+            window.open(url, '_blank');
             //const link = document.createElement('a');
             //link.href = url;
             //link.setAttribute('download', `invoice_${month}.pdf`);
@@ -56,11 +58,11 @@ const Bills = () => {
             //link.click();
 
             // Clean up
-            setTimeout(() => {
-                URL.revokeObjectURL(url)
+            //setTimeout(() => {
+                //URL.revokeObjectURL(url)
                 //document.body.removeChild(link);
                 //window.URL.revokeObjectURL(url);
-            }, 100);
+            //}, 100);
 
             setloading(0)
             data.showNotification("Bill generated", "success")
