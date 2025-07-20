@@ -112,7 +112,7 @@ const StoreProvider = (props) => {
         console.log(orders[idx])
         return;
     }
-
+console.log("customer:",customers)
         const getcustomers = async () => {
             setloading(!loading)
             const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/allcustomer`)
