@@ -45,7 +45,7 @@ const OrderDetailes = () => {
             <span className='w-[70%] rounded-2xl text-xl p-2'>{order.material}</span>
           </div>
         </div>
-        <div className={`flex px-4 relative overflow-hidden dark:text-white dark:bg-gray-700 bg-gray-50`}>
+        <div className={`flex px-4 relative overflow-hidden dark:bg-gray-700 bg-gray-50`}>
           <div className='flex items-center justify-between gap-3 w-full'>
             <span className='itemname text-xl'>Date:</span>
             <span className='w-[70%] rounded-2xl text-xl p-2'>{new Date(order.createdAt).toLocaleDateString()}</span>
@@ -74,7 +74,7 @@ const OrderDetailes = () => {
         </div>
         <div className='bg-green-200 p-3 px-7 m-3 rounded-2xl flex items-center justify-between'>
           <span className='font-bold text-2xl'>Total:</span>
-          <span className='text-green-800 font-bold text-2xl'>₹3290</span>
+          <span className='text-green-800 font-bold text-2xl'>₹{order.total}</span>
         </div>
 
       </div>
