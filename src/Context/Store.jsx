@@ -37,6 +37,7 @@ const StoreProvider = (props) => {
         } else {
             if(type === "customer") {
                 setcustomers(customers.filter(c => c._id !== id))
+                setorders(orders.filter(o => o.customerid !== id))
                 setloading(0)
                 showNotification(res.msg, "success")
             } else {
