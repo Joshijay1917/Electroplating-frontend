@@ -85,7 +85,7 @@ const Dashboard = () => {
         </div>
       </div>
       </div>
-      <div className='w-fit h-fit'>
+      <div className='w-fit h-fit mx-auto'>
       <Bar data={data2} options={options}/>
       </div>
     </div>
