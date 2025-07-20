@@ -35,9 +35,15 @@ const StoreProvider = (props) => {
             setloading(0)
             showNotification(res.msg, "error")
         } else {
-            showNotification(res.msg, "success")
-            setloading(0)
-            updateArray(id, type);
+            if(type === "customer") {
+                setcustomers(customers.filter(c => c._id !== id))
+                setloading(0)
+                showNotification(res.msg, "success")
+            } else {
+                setorders(orders.filter(o => o._id !== id))
+                setloading(0)
+                showNotification(res.msg, "success")
+            }
         }
     }
 
@@ -90,15 +96,7 @@ const StoreProvider = (props) => {
         }
     }
 
-    console.log("orders:",currcusorder);
-
-    const updateArray = (id, type) => {
-        if(type === "customer") {
-            setcustomers(customers.filter(c => c._id !== id))
-        } else {
-            setorders(orders.filter(o => o._id !== id))
-        }
-    }
+    //console.log("orders:",currcusorder);
 
     const changeOrder = (id) => {
         let idx = 0;
