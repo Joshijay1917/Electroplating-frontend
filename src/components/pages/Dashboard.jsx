@@ -33,7 +33,7 @@ const Dashboard = () => {
   };
 
   const options = {
-    responsive: true,
+    responsive: false,
     plugins: {
       legend: {
         position: 'top',
@@ -82,9 +82,11 @@ const Dashboard = () => {
             <label>completed:</label><p>8</p>
             </div>
           </div> */}
-          <Bar data={data2} options={options}/>
         </div>
       </div>
+      </div>
+      <div className='w-fit h-fit'>
+      <Bar data={data2} options={options}/>
       </div>
     </div>
   )
