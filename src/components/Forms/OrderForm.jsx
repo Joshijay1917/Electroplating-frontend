@@ -119,7 +119,7 @@ const OrderForm = forwardRef(({customer,customerid}, ref) => {
 
   return (
      <>
-          <form>
+          <form className='text-gray-700 dark:text-white'>
             <div className='mx-1 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
               <div className='flex items-center p-2 justify-between'>
                 <div className='flex items-center'>
@@ -226,6 +226,10 @@ const OrderForm = forwardRef(({customer,customerid}, ref) => {
       {loading ? <div className="bg-black/30 fixed z-30 w-full h-full flex justify-center items-center">
         <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
       </div> : null}
+       
+       <div className="bg-black/30 fixed z-30 w-full h-full flex justify-center items-center">
+        <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
+      </div>
     </>
   )
 })
