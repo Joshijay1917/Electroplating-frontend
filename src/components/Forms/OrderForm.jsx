@@ -112,7 +112,7 @@ const OrderForm = () => {
 
 
   return (
-    <div className='setheight2 p-3'>
+    <div className='setheight2 text-gray-700 dark:text-white p-3'>
       <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 decoration-blue-400'>Order Form</h1>
 
       {formData.customer === ''
