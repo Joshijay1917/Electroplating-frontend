@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'
-import { FaList, FaPlus, FaUser } from 'react-icons/fa'
+import { FaList, FaMinus, FaPlus, FaUser } from 'react-icons/fa'
 import { Store } from '../../Context/Store'
 import { Link } from 'react-router-dom'
 import OrderForm from './OrderForm'
@@ -86,8 +86,10 @@ const AllOrders = () => {
                         return <OrderForm key={form.id} ref={el => formRef.current[index] = el} customer={customer.customer} customerid={customer.customerid} />
                     })}
                     <div className='flex flex-col w-full mx-auto pb-16 gap-3 items-center'>
-                        <button onClick={handleClick} className='bg-blue-400 dark:bg-blue-400/70 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Add Form</button>
-                        <button onClick={removeForm} className='bg-red-400 dark:bg-red-800/70 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Remove Form</button>
+                        <div className='flex justify-between'>
+                        <button onClick={handleClick}><FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" />Add Order Form</button>
+                        <button onClick={removeForm}><FaMinus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" />Remove Order Form</button>
+                        </div>
                         <button onClick={submitall} className='bg-green-500 dark:bg-green-800/70 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Submit All Orders</button>
                     </div>
                 </>}
