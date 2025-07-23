@@ -87,7 +87,7 @@ const AllOrders = () => {
                     })}
                     <div className='flex flex-col w-full mx-auto pb-16 gap-3 items-center'>
                         <button onClick={handleClick} className='bg-blue-400 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Add Form</button>
-                        <button onClick={removeForm} className='bg-green-500 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Remove Form</button>
+                        <button onClick={removeForm} className='bg-red-200 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Remove Form</button>
                         <button onClick={submitall} className='bg-green-500 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Submit All Orders</button>
                     </div>
                 </>}
