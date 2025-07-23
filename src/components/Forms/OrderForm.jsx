@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { forwardRef, useContext, useEffect, useImperativeHandle, useState } from 'react'
 import { Store } from '../../Context/Store'
 import { FaClipboardList, FaMinus, FaPlus, FaUser } from 'react-icons/fa'
 import { GiCancel } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom'
 
-const OrderForm = () => {
+const OrderForm = forwardRef(({customer,customerid}, ref) => {
   const data = useContext(Store)
   const [loading, setloading] = useState(0)
   const navigate = useNavigate()
   const [platecounter, setplatecounter] = useState(1)
   const [formData, setFormData] = useState({
     itemName: '',
-    customer: '',
-    customerid: '',
+    customer: customer,
+    customerid: customerid,
     material: '',
     quantity: '',
     plating: [],
@@ -66,8 +66,10 @@ const OrderForm = () => {
     }))
   }
 
-  const handleSubmit = async(e) => {
-    e.preventDefault();
+  useImperativeHandle(ref, () => {
+    return {
+      handleSubmit: async() => {
+    //e.preventDefault();
     setloading(!loading);
 
     if (formData.itemName == '') {
@@ -105,6 +107,10 @@ const OrderForm = () => {
     }
 
   }
+    }
+  })
+
+  //const handleSubmit = 
 
   useEffect(() => {
     data.setcurrentPage("Addorder")
@@ -112,32 +118,8 @@ const OrderForm = () => {
 
 
   return (
-    <div className='setheight2 text-gray-700 dark:text-white p-3'>
-      <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 decoration-blue-400'>Order Form</h1>
-
-      {formData.customer === ''
-        ? <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
-          <div className='flex items-center p-2'>
-            <FaUser className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
-            <h2 className="text-xl font-semibold">Select Customer</h2>
-          </div>
-          <hr className='my-3 border border-blue-400' />
-
-          <div>
-            {data.customers.map(c => {
-              return <div key={c._id} onClick={(e) => CustomerDetailes(c, e)} className={`rounded-xl flex justify-between items-center p-3 px-8 my-3 relative overflow-hidden shadow-gray-500 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
-                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700"></div>
-                <div className='flex justify-between gap-6 w-[80%]'>
-                  <span className='name'>{c.name}</span>
-                  <span className='phone'>{c.phone}</span>
-                </div>
-              </div>
-            })}
-          </div>
-
-        </div>
-        : <>
-          <form onSubmit={handleSubmit}>
+     <>
+          <form>
             <div className='mx-1 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
               <div className='flex items-center p-2 justify-between'>
                 <div className='flex items-center'>
@@ -236,16 +218,16 @@ const OrderForm = () => {
                 </div>
               </div>
 
-              <button type='submit' className='bg-blue-600 m-auto mt-8 w-fit flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl dark:text-blue-400 mr-3" /> Add Order</button>
+              {/* <button type='submit' className='bg-blue-600 m-auto mt-8 text-white w-fit flex items-center rounded-2xl p-2'><FaClipboardList className="text-xl text-white dark:text-blue-400 mr-3" /> Add Order</button> */}
             </div>
 
           </form>
-        </>}
+       
       {loading ? <div className="bg-black/30 fixed z-30 w-full h-full flex justify-center items-center">
         <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
       </div> : null}
-    </div>
+    </>
   )
-}
+})
 
 export default OrderForm
