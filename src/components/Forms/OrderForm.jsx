@@ -227,7 +227,7 @@ const OrderForm = forwardRef(({customer,customerid}, ref) => {
         <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
       </div> : null}
        
-       <div className="bg-black/30 fixed z-30 w-full h-full flex justify-center items-center">
+       <div className="bg-black/30 fixed top-0 left-0 z-30 w-full h-full flex justify-center items-center">
         <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
       </div>
     </>
