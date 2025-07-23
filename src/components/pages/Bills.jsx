@@ -108,11 +108,11 @@ const Bills = () => {
                 <div className='flex flex-wrap gap-3 justify-between items-center w-full md:w-[55%]'>
                         <div className='flex gap-3 items-center justify-between w-full'>
                             <span>From</span>
-                            <input onChange={handleDate} name='From' value={Date.From} className='w-full border rounded-2xl border-gray-400 p-3' type="month" />
+                            <input onChange={handleDate} placeholder='Month-year' name='From' value={Date.From} className='w-full border rounded-2xl border-gray-400 p-3' type="month" />
                         </div>
                         <div className='flex gap-3 items-center justify-between w-full'>
                             <span>To:</span>
-                            <input onChange={handleDate} name='To' value={Date.To} className='w-full border rounded-2xl border-gray-400 p-3' type="month" />
+                            <input onChange={handleDate} placeholder='Month-year' name='To' value={Date.To} className='w-full border rounded-2xl border-gray-400 p-3' type="month" />
                         </div>
                     </div>
 
