@@ -20,7 +20,7 @@ const OrderDetailes = () => {
   }, [])
 
   return (
-    <div className='setheight p-6'>
+    <div className='setheight text-gray-700 dark:text-white p-6'>
       <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 decoration-blue-400'>Order Detailes</h1>
 
       <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
