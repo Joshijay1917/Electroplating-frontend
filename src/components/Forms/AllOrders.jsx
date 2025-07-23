@@ -29,6 +29,10 @@ const AllOrders = () => {
     const removeForm = () => {
         if (Form.length > 1) {
             setForm(Form.slice(0, -1))
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         }
     }
 
