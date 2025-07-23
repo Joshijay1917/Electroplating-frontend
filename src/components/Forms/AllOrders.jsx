@@ -57,7 +57,7 @@ const AllOrders = () => {
 
 
     return (
-        <div className='setheight2 p-3'>
+        <div className='setheight2 text-gray-700 dark:text-white p-3'>
             <h1 className='text-2xl font-bold underline underline-offset-10 decoration-7 dark:text-gray-300 decoration-blue-400'>Order Form</h1>
             {customer.customer === ''
                 ? <div className='mx-3 flex flex-col my-8 shadow-2xl border border-gray-400 rounded-2xl p-4'>
@@ -86,9 +86,9 @@ const AllOrders = () => {
                         return <OrderForm key={form.id} ref={el => formRef.current[index] = el} customer={customer.customer} customerid={customer.customerid} />
                     })}
                     <div className='flex flex-col w-full mx-auto pb-16 gap-3 items-center'>
-                        <button onClick={handleClick} className='bg-blue-400 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Add Form</button>
-                        <button onClick={removeForm} className='bg-red-200 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Remove Form</button>
-                        <button onClick={submitall} className='bg-green-500 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Submit All Orders</button>
+                        <button onClick={handleClick} className='bg-blue-400 dark:bg-blue-400/50 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Add Form</button>
+                        <button onClick={removeForm} className='bg-red-200 dark:bg-red-800/50 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Remove Form</button>
+                        <button onClick={submitall} className='bg-green-500 dark:bg-green-800/50 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Submit All Orders</button>
                     </div>
                 </>}
         </div>
