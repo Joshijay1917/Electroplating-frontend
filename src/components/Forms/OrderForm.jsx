@@ -29,10 +29,7 @@ const OrderForm = forwardRef(({customer,customerid}, ref) => {
   }
   
   const ChangeCustomer = () => {
-    setFormData(prev => ({
-      ...prev,
-      customer: ''
-    }))
+    navigate('/orders')
   }
 
   const changePlate = (e) => {
