@@ -86,9 +86,9 @@ const AllOrders = () => {
                         return <OrderForm key={form.id} ref={el => formRef.current[index] = el} customer={customer.customer} customerid={customer.customerid} />
                     })}
                     <div className='flex flex-col w-full mx-auto pb-16 gap-3 items-center'>
-                        <div className='flex justify-between w-full mx-1'>
-                        <button onClick={handleClick} className='flex bg-blue-500 text-white dark:text-white text-2xl p-1 rounded-sm  mr-3'><span>Add Order</span><FaPlus /></button>
-                        <button onClick={removeForm} className='flex bg-blue-500 text-white dark:text-white text-2xl p-1 rounded-sm  mr-3'><span>Remove Order</span><FaMinus /></button>
+                        <div className='flex justify-between w-full mx-2'>
+                        <button onClick={handleClick} className='flex bg-blue-500 text-white dark:text-white items-center gap-2 p-2 text-sm rounded-xl  mr-3'><span>Add Order</span><FaPlus /></button>
+                        <button onClick={removeForm} className='flex bg-blue-500 text-white dark:text-white items-center gap-2 p-2 text-sm rounded-xl  mr-3'><span>Remove Order</span><FaMinus /></button>
                         </div>
                         <button onClick={submitall} className='bg-green-500 dark:bg-green-800/70 text-white font-semibold w-fit px-20 rounded-2xl p-2'>Submit All Orders</button>
                     </div>
