@@ -73,7 +73,7 @@ const OrderDetailes = () => {
           })}
         </div>
         <div className='bg-green-200 p-3 px-7 m-3 rounded-2xl flex items-center justify-between'>
-          <span className='font-bold text-2xl'>Total:</span>
+          <span className='font-bold text-gray-700 dark:text-gray-700 text-2xl'>Total:</span>
           <span className='text-green-800 font-bold text-2xl'>₹{order.total}</span>
         </div>
 
