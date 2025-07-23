@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from './components/Main/Navbar'
 import Options from './components/Main/Options'
 import Order from './components/pages/Order'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Dashboard from './components/pages/Dashboard'
 import Customers from './components/pages/Customers'
 import Bills from './components/pages/Bills'
@@ -34,6 +34,7 @@ function App() {
           <Route path='/orderform' element={<OrderForm />} />
           <Route path='/addorder' element={<AllOrders />} />
           <Route path='/bills' element={<Bills />} />
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       <Options currentPage={currentPage} setcurrentPage={setcurrentPage} />
     </div>
