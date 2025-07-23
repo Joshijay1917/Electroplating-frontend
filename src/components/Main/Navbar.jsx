@@ -12,8 +12,8 @@ const Navbar = ({ toggleDarkMode, darkmode }) => {
                 <div className='flex'>
                     <img className='w-[70px] md:w-[82px] h-[70px] md:h-[82px] rounded-full m-auto' src="logo2nobg.png" alt="" />
                     <div className='px-2 py-4'>
-                        <h1 className='text-[22px] md:text-3xl'>Electroplating</h1>
-                        <p className='text-[15px] md:text-xl'>Order Management</p>
+                        <h1 className='text-[22px] md:text-3xl'>Harshad</h1>
+                        <p className='text-[15px] md:text-xl'>Electroplating</p>
                     </div>
                 </div>
             </div>
