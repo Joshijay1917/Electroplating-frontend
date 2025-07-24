@@ -31,8 +31,8 @@ const Bills = () => {
         e.preventDefault();
         setloading(!loading);
 
-        if (!customerid || !Date.From || !Date.To) {
-            data.showNotification("CustomerID not found", "error")
+        if (customerid === "" || Date.From === '' || !Date.To === '') {
+            data.showNotification("Customer and Month is Required", "error")
         }
 
         try {
@@ -80,7 +80,7 @@ const Bills = () => {
 
            setTimeout(() => {
                  setloading(0)
-             }, 1000);
+             }, 3000);
             data.showNotification("Bill generated", "success")
         } catch (error) {
             setloading(0)
