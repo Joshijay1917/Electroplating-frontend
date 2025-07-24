@@ -2,12 +2,18 @@ import React, { useContext, useState } from 'react'
 import { FaClipboardList, FaUser } from 'react-icons/fa'
 import { Store } from '../../Context/Store'
 import { useEffect } from 'react'
+import { Document, Page } from 'react-pdf'
+import { pdfjs } from 'react-pdf'
 import "../setheight.css"
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const Bills = () => {
     const data = useContext(Store)
     const [loading, setloading] = useState(0)
     const [currCus, setcurrCus] = useState([])
+    const [url, seturl] = useState()
+    const [numPages, setnumPages] = useState()
     const [Date, setDate] = useState({
         From: '',
         To: ''
@@ -36,8 +42,12 @@ const Bills = () => {
             //})
             // const res = await data2.json();
 
-            const url = `${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice?id=${encodeURIComponent(customerid.toString())}&From=${encodeURIComponent(Date.From.toString())}&To=${encodeURIComponent(Date.To.toString())}`
+            //const url = `${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice?id=${encodeURIComponent(customerid.toString())}&From=${encodeURIComponent(Date.From.toString())}&To=${encodeURIComponent(Date.To.toString())}`
 
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice?id=${encodeURIComponent(customerid.toString())}&From=${encodeURIComponent(Date.From.toString())}&To=${encodeURIComponent(Date.To.toString())}`)
+            const blob = await res.blob();
+            seturl(URL.createObjectURL(blob))
+            
             //if (!data2.ok) {
                 //const errorData = await data2.json();
                 //console.log('Failed to generate invoice');
@@ -49,7 +59,7 @@ const Bills = () => {
             // window.Appilix.downloadFile(pdfBlob, 'invoice.pdf');
             //const url = URL.createObjectURL(blob);
             //console.log(url);
-            window.open(url, '_blank');
+            //window.open(url, '_blank');
             //const link = document.createElement('a');
             //link.href = url;
             //link.setAttribute('download', `invoice_${month}.pdf`);
@@ -131,7 +141,18 @@ const Bills = () => {
              {loading ? <div className="bg-black/30 fixed top-0 left-0 z-30 w-full h-full flex justify-center items-center">
                  <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
              </div> : null}
-            <iframe src={"https://electroplating-backend-production.up.railway.app/api/generate-invoice?id=68805dd4381f302f751622c6&From=2025-07&To=2025-07"}/>
+            {url ? <Document
+          file={url}
+          onLoadSuccess={({ numPages }) => setnumPages(numPages)}
+        >
+          {Array.from({ length: numPages }, (_, i) => (
+            <Page 
+              key={`page_${i+1}`} 
+              pageNumber={i+1} 
+              width={800} 
+            />
+          ))}
+        </Document>:null}
         </div>
     )
 }
