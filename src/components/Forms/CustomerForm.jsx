@@ -72,7 +72,7 @@ const CustomerForm = ({ toggleForm }) => {
                         <div className='flex justify-between w-full items-center text-xl font-bold'>
                             <div className='flex items-center'>
                                 <FaUser className="text-2xl text-blue-600 dark:text-blue-400 mr-3"/>
-                                <h1 className='text-gray-700 dark:text-white'>Customer Form</h1>
+                                <h1 className='text-gray-700 dark:text-gray-700'>Customer Form</h1>
                             </div>
                             <GiCancel onClick={() => toggleForm()} className='text-3xl text-blue-600 dark:text-blue-400'/>
                         </div>
