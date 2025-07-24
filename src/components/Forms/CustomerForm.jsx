@@ -21,6 +21,7 @@ const CustomerForm = ({ toggleForm }) => {
                     [e.target.name]: e.target.value
                 }))
             } else {
+                toggleForm();
                 store.showNotification("Only digits allowed", "error")
             }
         }
@@ -36,6 +37,7 @@ const CustomerForm = ({ toggleForm }) => {
         setloading(!loading);
 
         if(FormData.phone.length !== 10) {
+            toggleForm();
             setloading(0)
             store.showNotification("Phone number has atleast 10 digit", "error")
             return;
