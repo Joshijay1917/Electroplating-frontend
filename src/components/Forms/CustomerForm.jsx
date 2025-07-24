@@ -1,8 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { Store } from '../../Context/Store'
+import { useNavigate } from 'react-router-dom'
+import { GiCancel } from 'react-icons/gi'
+import { FaUser } from 'react-icons/fa'
 
 const CustomerForm = ({ toggleForm }) => {
     const store = useContext(Store)
+    const navigate = useNavigate()
     const [loading, setloading] = useState(0)
     const [FormData, setFormData] = useState({
         "name": '',
@@ -45,7 +49,14 @@ const CustomerForm = ({ toggleForm }) => {
             <div className='bg-black/30 absolute w-full h-full top-0'>
                 <div className='h-full flex items-center flex-col justify-center'>
                     <form onSubmit={handlesubmit} className='flex p-6 rounded-2xl items-start gap-3 z-30 flex-col justify-center bg-white'>
-                        <h1 className='text-2xl font-bold mb-6'>Customer Form</h1>
+                        <div className='flex justify-between w-full items-center text-2xl font-bold'>
+                            <div className='flex items-center'>
+                                <FaUser className="text-2xl text-blue-600 dark:text-blue-400 mr-3"/>
+                                <h1 className='text-gray-700 dark:text-white'>Customer Form</h1>
+                            </div>
+                            <GiCancel onClick={() => navigate('/customer')} className='text-3xl text-blue-600 dark:text-blue-400'/>
+                        </div>
+                        <hr className='mb-4 border border-blue-400 w-full' />
                         <div className='flex gap-3 mx-auto items-center'>
                             <label>Name</label>
                             <input onChange={handleChange} className='bg-gray-300 rounded-2xl p-2' type="text" name='name' placeholder='Customer Name' />
