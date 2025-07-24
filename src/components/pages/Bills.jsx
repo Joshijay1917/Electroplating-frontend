@@ -6,7 +6,10 @@ import { Document, Page } from 'react-pdf'
 import { pdfjs } from 'react-pdf'
 import "../setheight.css"
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.js',
+    import.meta.url,
+  ).toString();
 
 const Bills = () => {
     const data = useContext(Store)
