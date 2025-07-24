@@ -131,6 +131,7 @@ const Bills = () => {
              {loading ? <div className="bg-black/30 fixed top-0 left-0 z-30 w-full h-full flex justify-center items-center">
                  <div className="animate-spin rounded-full border-4 border-solid border-t-transparent text-blue-800 h-19 w-19"></div>
              </div> : null}
+            <iframe src={"https://electroplating-backend-production.up.railway.app/api/generate-invoice?id=68805dd4381f302f751622c6&From=2025-07&To=2025-07"}/>
         </div>
     )
 }
