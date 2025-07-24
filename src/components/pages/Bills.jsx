@@ -50,7 +50,7 @@ const Bills = () => {
             const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/generate-invoice?id=${encodeURIComponent(customerid.toString())}&From=${encodeURIComponent(Date.From.toString())}&To=${encodeURIComponent(Date.To.toString())}`)
             const blob = await res.blob();
             seturl(URL.createObjectURL(blob))
-          console.log("URL=".blob)
+          console.log("URL=",blob)
             
             //if (!data2.ok) {
                 //const errorData = await data2.json();
