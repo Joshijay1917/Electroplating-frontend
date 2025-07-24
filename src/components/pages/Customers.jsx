@@ -37,7 +37,7 @@ const Customers = () => {
         return <div key={c._id} className={`rounded-xl flex justify-between items-center p-3 px-8 mx-5 my-3 relative overflow-hidden shadow-gray-500 transition-all text-gray-700 dark:text-white hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
         <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700"></div>
         <div className='flex justify-between gap-6 w-[80%]'>
-          <span className='name'>{c.name}</span>
+          <span className='name break-all'>{c.name}</span>
           <span className='phone'>{c.phone}</span>
         </div>
         <MdDelete onClick={e=>data.deleteCustomer(c._id, "customer")} className='text-2xl text-blue-600 dark:text-blue-400' />
