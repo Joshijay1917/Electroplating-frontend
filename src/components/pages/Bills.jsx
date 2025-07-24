@@ -85,6 +85,8 @@ const Bills = () => {
         }
     }
 
+  console.log("URL=".url)
+
     const handleDate = (e) => {
         setDate(prev => ({
             ...prev,
