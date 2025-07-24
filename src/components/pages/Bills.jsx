@@ -7,9 +7,9 @@ import { pdfjs } from 'react-pdf'
 import "../setheight.css"
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.js',
-    import.meta.url,
-  ).toString();
+  '/node_modules/pdfjs-dist/build/pdf.worker.mjs',
+  import.meta.url
+).toString();
 
 const Bills = () => {
     const data = useContext(Store)
