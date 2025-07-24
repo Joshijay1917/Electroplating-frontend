@@ -78,7 +78,9 @@ const Bills = () => {
                 //window.URL.revokeObjectURL(url);
             //}, 100);
 
-            setloading(0)
+           setTimeout(() => {
+                 setloading(0)
+             }, 1000);
             data.showNotification("Bill generated", "success")
         } catch (error) {
             setloading(0)
