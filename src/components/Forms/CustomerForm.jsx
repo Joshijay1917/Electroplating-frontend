@@ -14,6 +14,17 @@ const CustomerForm = ({ toggleForm }) => {
     })
 
     const handleChange = (e) => {
+        if(e.target.name === "phone") {
+            if(/^\d*$/.test(e.target.value)) {
+                setFormData(prev => ({
+                    ...prev,
+                    [e.target.name]: e.target.value
+                }))
+            } else {
+                store.showNotification("Only digits allowed", "error")
+            }
+        }
+        
         setFormData(prev => ({
             ...prev,
             [e.target.name] : e.target.value
@@ -23,6 +34,13 @@ const CustomerForm = ({ toggleForm }) => {
     const handlesubmit = async(e) => {
         e.preventDefault();
         setloading(!loading);
+
+        if(FormData.phone.length !== 10) {
+            setloading(0)
+            store.showNotification("Phone number has atleast 10 digit", "error")
+            return;
+        }
+        
         const data = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/addcustomer`, {
             method: 'POST',
             headers: {
