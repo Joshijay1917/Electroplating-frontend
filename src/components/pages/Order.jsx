@@ -21,7 +21,7 @@ const Order = () => {
 
     const handleItemname = (e) => {
         if(e.target.value) {
-            setcurrentOrder(data.orders.filter(o => o.itemName.includes(e.target.value)))
+            setcurrentOrder(data.orders.filter(o => o.itemName.includes(e.target.value.toLocaleLowerCase())))
         } else {
             setcurrentOrder(data.orders)
         }
@@ -29,7 +29,7 @@ const Order = () => {
 
     const handleCustomer = (e) => {
         if(e.target.value) {
-            setcurrentOrder(data.orders.filter(o => o.customer.includes(e.target.value)))
+            setcurrentOrder(data.orders.filter(o => o.customer.includes(e.target.value.toLocaleLowerCase())))
         } else {
             setcurrentOrder(data.orders)
         }
