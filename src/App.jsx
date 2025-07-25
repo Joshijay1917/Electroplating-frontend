@@ -34,7 +34,7 @@ function App() {
           <Route path='/orderform' element={<OrderForm />} />
           <Route path='/addorder' element={<AllOrders />} />
           <Route path='/bills' element={<Bills />} />
-          <Route path='*' element={<Navigate to='/' />} />
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Routes>
       <Options currentPage={currentPage} setcurrentPage={setcurrentPage} />
     </div>
