@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+ooimport React, { useContext, useState } from 'react'
 import { Store } from '../../Context/Store'
 import { useNavigate } from 'react-router-dom'
 import { GiCancel } from 'react-icons/gi'
@@ -83,7 +83,7 @@ const CustomerForm = ({ toggleForm }) => {
                         </div>
                         <div className='flex gap-3 mx-auto items-center'>
                             <label className='phone'>Phone</label>
-                            <input onChange={handleChange} className='bg-gray-300 w-full rounded-2xl p-2' type="text" name='phone' placeholder='Phone Number' />
+                            <input onChange={handleChange} maxLength={10} className='bg-gray-300 w-full rounded-2xl p-2' type="text" name='phone' placeholder='Phone Number' />
                         </div>
                         <button className='mt-3 bg-blue-500 text-white px-3 py-2 rounded-2xl' type='submit'>Add Customer</button>
                     </form>
