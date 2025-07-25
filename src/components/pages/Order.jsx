@@ -22,8 +22,12 @@ const Order = () => {
     const handleItemname = (e) => {
         if(e.target.value) {
             setcurrentOrder(data.orders.filter(o => o.itemName.includes(e.target.value.toLocaleLowerCase())))
+            setcurrentCus(data.customers.filter(c => data.orders.filter(o => o.itemName.includes(e.target.value.toLocaleLowerCase())).filter(o => o.customer.toLocaleLowerCase().includes(c.name.toLocaleLowerCase()))))
         } else {
             setcurrentOrder(data.orders)
+            setcurrentCus(data.customers.filter(c => 
+                data.orders.find(o => o.customerid === c._id)
+            ))
         }
     }
 
