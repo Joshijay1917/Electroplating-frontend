@@ -13,7 +13,7 @@ const Customers = () => {
 
   const handleChange = (e) => {
     if(e.target.value) {
-      setcustomers(data.customers.filter(c => c.name.includes(e.target.value) ))
+      setcustomers(data.customers.filter(c => c.name.includes(e.target.value.toLocaleLowerCase()) ))
     } else {
       setcustomers(data.customers)
     }
