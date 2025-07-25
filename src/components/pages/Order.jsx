@@ -33,7 +33,9 @@ const Order = () => {
             setcurrentCus(data.customers.filter(c => c.name.includes(e.target.value.toLocaleLowerCase())))
         } else {
             setcurrentOrder(data.orders)
-            setcurrentCus(data.customers)
+            setcurrentCus(data.customers.filter(c => 
+                data.orders.find(o => o.customerid === c._id)
+            ))
         }
     }
 
