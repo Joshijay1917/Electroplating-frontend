@@ -1,4 +1,4 @@
-ooimport React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Store } from '../../Context/Store'
 import { useNavigate } from 'react-router-dom'
 import { GiCancel } from 'react-icons/gi'
