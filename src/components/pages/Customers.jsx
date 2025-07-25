@@ -9,6 +9,15 @@ import { MdDelete } from 'react-icons/md'
 const Customers = () => {
   const [customerForm, setcustomerForm] = useState(false)
   const data = useContext(Store)
+  const [customers, setcustomers] = useState(data.customers)
+
+  const handleChange = (e) => {
+    if(e.target.value) {
+      setcustomers(data.customers.filter(c => c.name.includes(e.target.value) ))
+    } else {
+      setcustomers(data.customers)
+    }
+  }
 
   useEffect(() => {
     console.log(data.customers);
@@ -22,18 +31,21 @@ const Customers = () => {
 
   return (
     <div className='setheight'>
-      <div className='mx-5 flex items-center justify-between my-8 shadow-2xl border text-gray-700 dark:text-white border-gray-400 dark:border-gray-600 rounded-2xl p-4'>
+      <div className='mx-5 my-8 shadow-2xl border text-gray-700 dark:text-white border-gray-400 dark:border-gray-600 rounded-2xl p-4'>
+        <div className='flex items-center justify-between'>
         <div className='flex items-center'>
         <FaClipboardList className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
         <h2 className="text-xl font-semibold">All Customers</h2>
         </div>
         <FaPlus onClick={()=>toggleForm()} className="text-2xl text-white p-1 rounded-sm bg-blue-500 mr-3"/>
+        </div>
+        <input onChange={handleChange} className='mt-4 border border-gray-400 p-2 w-full rounded-2xl' placeholder='Search Customer' type='text'/>
       </div>
 
       {customerForm && <CustomerForm toggleForm={toggleForm} />}
 
-      {data.customers.length !== 0
-      ? data.customers.map(c => {
+      {customers.length !== 0
+      ? customers.map(c => {
         return <div key={c._id} className={`rounded-xl flex justify-between items-center p-3 px-8 mx-5 my-3 relative overflow-hidden shadow-gray-500 transition-all text-gray-700 dark:text-white hover:-translate-y-0.5 hover:shadow-lg dark:bg-gray-700 dark:border-gray-600 bg-gray-50 border-gray-400 border`}>
         <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-600 to-blue-800 dark:from-blue-500 dark:to-blue-700"></div>
         <div className='flex justify-between gap-6 w-[80%]'>
