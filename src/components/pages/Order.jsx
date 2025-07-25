@@ -19,6 +19,22 @@ const Order = () => {
         console.log(JSON.parse(data.orders.find(order => order._id === o._id).status));
     }
 
+    const handleItemname = (e) => {
+        if(e.target.value) {
+            setcurrentOrder(data.orders.filter(o => o.itemName.includes(e.target.value)))
+        } else {
+            setcurrentOrder(data.orders)
+        }
+    }
+
+    const handleCustomer = (e) => {
+        if(e.target.value) {
+            setcurrentOrder(data.orders.filter(o => o.customer.includes(e.target.value)))
+        } else {
+            setcurrentOrder(data.orders)
+        }
+    }
+
     useEffect(() => {
         data.setcurrentPage("Order")
         const getOrders = async() => {
@@ -37,7 +53,8 @@ const Order = () => {
 
     return (
         <div className='setheight pb-[68px]'>
-            <div className='mx-5 flex items-center justify-between my-8 shadow-2xl border text-gray-700 dark:text-white border-gray-400 rounded-2xl p-4'>
+            <div className='mx-5 my-8 shadow-2xl border text-gray-700 dark:text-white border-gray-400 rounded-2xl p-4'>
+                <div className='flex items-center justify-between'>
                 <div className='flex items-center'>
                     <FaClipboardList className="text-xl text-blue-600 dark:text-blue-400 mr-3" />
                     <h2 className="text-xl font-semibold">All Orders</h2>
@@ -45,6 +62,9 @@ const Order = () => {
                 <Link to={'/addorder'}>
                     <FaPlus className="text-2xl p-1 rounded-sm bg-blue-500 text-white dark:text-white mr-3" />
                 </Link>
+                </div>
+                <input onChange={handleItemname} className='mt-4 border border-gray-400 p-2 w-full rounded-2xl' placeholder='Search by Itemname' type='text'/>
+                <input onChange={handleCustomer} className='mt-4 border border-gray-400 p-2 w-full rounded-2xl' placeholder='Search by Customername' type='text'/>
             </div>
 
             {currentOrder.length !== 0
