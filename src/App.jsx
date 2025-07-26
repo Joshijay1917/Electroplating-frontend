@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from './components/Main/Navbar'
 import Options from './components/Main/Options'
 import Order from './components/pages/Order'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom'
 import Dashboard from './components/pages/Dashboard'
 import Customers from './components/pages/Customers'
 import Bills from './components/pages/Bills'
@@ -14,6 +14,7 @@ import AllOrders from './components/Forms/AllOrders'
 function App() {
   const [darkmode, setdarkmode] = useState(false)
   const [currentPage, setcurrentPage] = useState("Dashboard")
+  const navigate = useNavigate();
 
   const toggleDarkMode = () => {
     setdarkmode(!darkmode);
@@ -22,8 +23,9 @@ function App() {
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       e.preventDefault();
-      e.returnValue = 'Are you sure you want to leave? Your data may not be saved.';
-      return e.returnValue;
+      navigate('/');
+      //e.returnValue = 'Are you sure you want to leave? Your data may not be saved.';
+      return e;
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
