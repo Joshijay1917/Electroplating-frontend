@@ -22,10 +22,9 @@ function App() {
 
   useEffect(() => {
     const handleBeforeUnload = (e) => {
-      e.preventDefault();
-      navigate('/');
-      //e.returnValue = 'Are you sure you want to leave? Your data may not be saved.';
-      return e;
+      e.preventDefault(); // Block default behavior
+      navigate('/', { replace: true }); // Redirect silently
+      return ""; // No popup
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
