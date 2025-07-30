@@ -1,0 +1,27 @@
+.loginbtn:active{
+    animation: login 3s ease-in-out;
+}
+
+.login{
+    animation: login 3s ease-in-out;
+}
+.login2{
+    animation: login2 3s ease-in-out;
+}
+
+@keyframes login {
+    0% {
+        top: 80vh;
+    }
+    100% {
+        top: 20vh;
+    }
+}
+@keyframes login2 {
+    0% {
+        top: 20vh;
+    }
+    100% {
+        top: 110vh;
+    }
+}
