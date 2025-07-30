@@ -10,10 +10,12 @@ import { useState, useEffect } from 'react'
 import OrderForm from './components/Forms/OrderForm'
 import OrderDetailes from './components/Content/OrderDetailes'
 import AllOrders from './components/Forms/AllOrders'
+import Login from './components/Auth/Login'
 
 function App() {
   const [darkmode, setdarkmode] = useState(false)
   const [currentPage, setcurrentPage] = useState("Dashboard")
+  const [isAuthenticated, setisAuthenticated] = useState(false)
   const navigate = useNavigate();
 
   const toggleDarkMode = () => {
@@ -37,18 +39,19 @@ function App() {
 
   return (
     <div>
-      <Navbar darkmode={darkmode} toggleDarkMode={toggleDarkMode} />
+      {isAuthenticated && <Navbar darkmode={darkmode} toggleDarkMode={toggleDarkMode} />}
         <Routes>
-          <Route path='/' element={<Dashboard />} />
-          <Route path='/customer' element={<Customers />} />
-          <Route path='/orders' element={<Order />} />
-          <Route path='/orderdetails/:id' element={<OrderDetailes />} />
-          <Route path='/orderform' element={<OrderForm />} />
-          <Route path='/addorder' element={<AllOrders />} />
-          <Route path='/bills' element={<Bills />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/' element={isAuthenticated ? <Dashboard /> : <Navigate to='/login'/>} />
+          <Route path='/customer' element={isAuthenticated ? <Customers /> : <Navigate to='/login'/>} />
+          <Route path='/orders' element={isAuthenticated ? <Order /> : <Navigate to='/login'/>} />
+          <Route path='/orderdetails/:id' element={isAuthenticated ? <OrderDetailes /> : <Navigate to='/login'/>} />
+          <Route path='/orderform' element={isAuthenticated ? <OrderForm /> : <Navigate to='/login'/>} />
+          <Route path='/addorder' element={isAuthenticated ? <AllOrders /> : <Navigate to='/login'/>} />
+          <Route path='/bills' element={isAuthenticated ? <Bills /> : <Navigate to='/login'/>} />
           <Route path='*' element={<Navigate to='/' replace />} />
         </Routes>
-      <Options currentPage={currentPage} setcurrentPage={setcurrentPage} />
+      {isAuthenticated && <Options currentPage={currentPage} setcurrentPage={setcurrentPage} />}
     </div>
   )
 }
