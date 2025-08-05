@@ -1,27 +1,55 @@
-.loginbtn:active{
-    animation: login 3s ease-in-out;
+.height{
+    height: calc(100vh - 14vh);
+    top: 14vh;
+}
+.setleft{
+    left: calc(50% - 40px);
+}
+.settop{
+    top: calc(50% - 40px);
+}
+.goDown{
+    animation: goDown 3s ease-in-out;
+}
+.form{
+    animation: form 3s ease-in-out;
+}
+.logo{
+    animation: rotate 1s 3s ease-in-out infinite,
+               logo 3s ease-in-out;
 }
 
-.login{
-    animation: login 3s ease-in-out;
-}
-.login2{
-    animation: login2 3s ease-in-out;
-}
-
-@keyframes login {
+@keyframes goDown {
     0% {
-        top: 80vh;
+        top: 20%;
     }
     100% {
-        top: 20vh;
+        top: 100%;
     }
 }
-@keyframes login2 {
-    0% {
-        top: 20vh;
+@keyframes form {
+    0%{
+        top: 20%;
     }
     100% {
-        top: 110vh;
+        top: 50%;
+        padding: 15px;
+        height: 1vh;
+    }
+}
+@keyframes logo {
+    0% {
+        top: 15%;
+    }
+    100% {
+        top: calc(50% - 40px);
+    }
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
     }
 }
