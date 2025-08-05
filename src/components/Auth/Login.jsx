@@ -24,7 +24,8 @@ const Login = ({Animation, revAnimation, setisAuthenticated}) => {
 
         Animation();
 
-        const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/login`, {
+        setTimeout(async () => {
+            const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/login`, {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -39,6 +40,7 @@ const Login = ({Animation, revAnimation, setisAuthenticated}) => {
         } else {
             setisAuthenticated(true)
         }
+        }, 3000);
     }
 
     return (
