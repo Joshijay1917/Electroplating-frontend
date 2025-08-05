@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react'
 import OrderForm from './components/Forms/OrderForm'
 import OrderDetailes from './components/Content/OrderDetailes'
 import AllOrders from './components/Forms/AllOrders'
-import Login from './components/Auth/Login'
+import Main from './components/Auth/Main'
 
 function App() {
   const [darkmode, setdarkmode] = useState(false)
@@ -41,7 +41,7 @@ function App() {
     <div>
       {isAuthenticated && <Navbar darkmode={darkmode} toggleDarkMode={toggleDarkMode} />}
         <Routes>
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={isAuthenticated ? <Navigate to='/'/> :<Main setisAuthenticated={setisAuthenticated}/>} />
           <Route path='/' element={isAuthenticated ? <Dashboard /> : <Navigate to='/login'/>} />
           <Route path='/customer' element={isAuthenticated ? <Customers /> : <Navigate to='/login'/>} />
           <Route path='/orders' element={isAuthenticated ? <Order /> : <Navigate to='/login'/>} />
