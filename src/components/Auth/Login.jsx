@@ -24,7 +24,7 @@ const Login = ({Animation, revAnimation, setisAuthenticated}) => {
 
         Animation();
 
-        const data2 = await fetch('http://localhost:3000/api/login', {
+        const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/login`, {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
