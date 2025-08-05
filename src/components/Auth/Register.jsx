@@ -25,7 +25,7 @@ const Register = ({Animation, revAnimation}) => {
 
         Animation();
 
-        const data2 = await fetch('http://localhost:3000/api/register', {
+        const data2 = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/register`, {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
