@@ -11,6 +11,9 @@
 .goDown{
     animation: goDown 3s ease-in-out;
 }
+.goUp{
+    animation: goUp 3s ease-in-out;
+}
 .form{
     animation: form 3s ease-in-out;
 }
@@ -25,6 +28,14 @@
     }
     100% {
         top: 100%;
+    }
+}
+@keyframes goUp {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: 20%;
     }
 }
 @keyframes form {
