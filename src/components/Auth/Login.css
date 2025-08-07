@@ -24,6 +24,9 @@
     animation: rotate 1s 3s ease-in-out infinite,
                logo 3s ease-in-out;
 }
+.logoUp{
+    animation: logoUp 3s ease-in-out;
+}
 
 @keyframes goDown {
     0% {
@@ -66,6 +69,14 @@
         top: 15%;
     }
     100% {
+        top: calc(50% - 40px);
+    }
+}
+@keyframes logoUp {
+    100% {
+        top: 15%;
+    }
+    0% {
         top: calc(50% - 40px);
     }
 }
